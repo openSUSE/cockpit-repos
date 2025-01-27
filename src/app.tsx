@@ -1,47 +1,94 @@
-/*
- * This file is part of Cockpit.
- *
- * Copyright (C) 2017 Red Hat, Inc.
- *
- * Cockpit is free software; you can redistribute it and/or modify it
- * under the terms of the GNU Lesser General Public License as published by
- * the Free Software Foundation; either version 2.1 of the License, or
- * (at your option) any later version.
- *
- * Cockpit is distributed in the hope that it will be useful, but
- * WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public License
- * along with Cockpit; If not, see <http://www.gnu.org/licenses/>.
- */
+import React, {
+    createContext,
+    Dispatch,
+    SetStateAction,
+    useContext,
+    useEffect,
+    useState,
+} from "react";
+import {
+    Card,
+    CardBody,
+    CardHeader,
+    CardTitle,
+} from "@patternfly/react-core/dist/esm/components/Card/index.js";
 
-import React, { useEffect, useState } from 'react';
-import { Alert } from "@patternfly/react-core/dist/esm/components/Alert/index.js";
-import { Card, CardBody, CardTitle } from "@patternfly/react-core/dist/esm/components/Card/index.js";
-
-import cockpit from 'cockpit';
+import cockpit from "cockpit";
+import { Zypp } from "./backends/zypp";
+import { Backend, Repo } from "./backends/backend";
+import { RepoList } from "./components/repo_list";
+import { Button } from "@patternfly/react-core";
+import { useDialogs, WithDialogs } from "dialogs";
+import { RepoDialog } from "./components/repo_dialog";
+import { EmptyStatePanel } from "cockpit-components-empty-state";
 
 const _ = cockpit.gettext;
 
+export const RepoChangesContext = createContext<{
+  reposChanged: number | null;
+  setReposChanged: Dispatch<SetStateAction<number>> | null;
+}>({
+    reposChanged: null,
+    setReposChanged: null,
+});
+
 export const Application = () => {
-    const [hostname, setHostname] = useState(_("Unknown"));
+    const [reposChanged, setReposChanged] = useState<number>(0);
+
+    return (
+        <RepoChangesContext.Provider
+      value={{
+          reposChanged,
+          setReposChanged,
+      }}
+        >
+            <WithDialogs>
+                <RepoCard />
+            </WithDialogs>
+        </RepoChangesContext.Provider>
+    );
+};
+
+const RepoCard = () => {
+    const [backend, _setBackend] = useState<Backend>(new Zypp());
+    const [repos, setRepos] = useState<Repo[]>([]);
+    const { reposChanged, setReposChanged } = useContext(RepoChangesContext);
+
+    const Dialogs = useDialogs();
 
     useEffect(() => {
-        const hostname = cockpit.file('/etc/hostname');
-        hostname.watch(content => setHostname(content?.trim() ?? ""));
-        return hostname.close;
-    }, []);
+        backend.getRepos().then((repos) => {
+            setRepos(repos);
+        });
+    }, [backend, reposChanged]);
 
     return (
         <Card>
-            <CardTitle>Starter Kit</CardTitle>
+            <CardHeader
+        actions={{
+            actions: (
+                <Button
+              variant="secondary"
+              id="settings-button"
+              component="a"
+              onClick={() =>
+                  Dialogs.show(<RepoDialog backend={backend} repo={null} />)}
+                >
+                    {_("Add Repo")}
+                </Button>
+            ),
+        }}
+            >
+                <CardTitle>{_("Software Repositories")}</CardTitle>
+            </CardHeader>
             <CardBody>
-                <Alert
-                    variant="info"
-                    title={ cockpit.format(_("Running on $0"), hostname) }
-                />
+                {repos
+                    ? (
+                        <RepoList repos={repos} backend={backend} />
+                    )
+                    : (
+                        <EmptyStatePanel loading />
+                    )}
             </CardBody>
         </Card>
     );

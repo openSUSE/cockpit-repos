@@ -1,5 +1,17 @@
+@use "@patternfly/patternfly/patternfly-addons";
 @use "page.scss";
 
 p {
     font-weight: bold;
+}
+
+.pf-v6-c-table tr {
+  > td, th {
+    --pf-v5-c-table--cell--PaddingTop: var(--pf-v5-global--spacer--xs);
+    --pf-v5-c-table--cell--PaddingBottom: var(--pf-v5-global--spacer--xs);
+
+    padding-block: var(--pf-v5-c-table--cell--PaddingTop) var(--pf-v5-c-table--cell--PaddingBottom);
+
+    padding-inline: var(--pf-v5-c-table--cell--PaddingLeft) var(--pf-v5-c-table--cell--PaddingRight);
+  }
 }

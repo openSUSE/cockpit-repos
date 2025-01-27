@@ -1,4 +1,4 @@
-Name: cockpit-starter-kit
+Name: cockpit-repos
 Version: %{VERSION}
 Release: 1%{?dist}
 Summary: Cockpit Starter Kit Example Module

@@ -1,6 +1,6 @@
 {
-  "name": "starter-kit",
-  "description": "Scaffolding for a cockpit module",
+  "name": "cockpit-repos",
+  "description": "A cockpit module for managing system repositories",
   "type": "module",
   "main": "index.js",
   "repository": "git@github.com:cockpit/starter-kit.git",
@@ -54,6 +54,7 @@
     "@patternfly/react-core": "5.4.11",
     "@patternfly/react-icons": "5.4.2",
     "@patternfly/react-styles": "5.4.1",
+    "@patternfly/react-table": "^6.1.0",
     "react": "18.3.1",
     "react-dom": "18.3.1"
   }

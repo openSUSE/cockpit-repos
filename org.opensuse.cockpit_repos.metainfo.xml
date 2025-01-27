@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>org.opensuse.cockpit-repos.metainfo.xml</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <name>Repositories</name>
+  <summary>A cockpit module for managing repositories.</summary>
+  <description>
+    <p>
+      A cockpit module for managing repositories.
+    </p>
+  </description>
+  <extends>org.cockpit_project.cockpit</extends>
+  <launchable type="cockpit-manifest">repositories</launchable>
+  <url type="homepage">https://github.com/openSUSE/cockpit-repos</url>
+  <url type="bugtracker">https://github.com/openSUSE/cockpit-repos/issues</url>
+  <developer id="org.opensuse">
+    <name>openSUSE</name>
+  </developer>
+</component>
