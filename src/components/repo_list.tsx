@@ -19,7 +19,6 @@ type Props = {
 
 export const RepoList = ({ repos, backend }: Props) => {
     const columns = [
-        { title: _("Alias") },
         { title: _("Name") },
         { title: _("Priority") },
         { title: _("GPG Check") },
@@ -36,12 +35,7 @@ export const RepoList = ({ repos, backend }: Props) => {
           return {
               columns: [
                   {
-                      title: repo.alias,
-                      props: { width: 20 },
-                  },
-                  {
                       title: repo.name,
-                      props: { width: 40 },
                   },
                   {
                       title: repo.priority,
