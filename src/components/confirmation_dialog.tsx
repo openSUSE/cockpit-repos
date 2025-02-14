@@ -13,7 +13,7 @@ export const ConfirmationDialog = ({
 }: {
   title: string;
   callback: () => void;
-  content: React.ReactNode | undefined;
+  content?: React.ReactNode;
 }) => {
   const Dialogs = useDialogs();
 
