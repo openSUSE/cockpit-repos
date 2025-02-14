@@ -27,7 +27,7 @@ export const ConfirmationDialog = ({
         <>
           <Button
             variant="danger"
-            onClick={callback}
+            onClick={() => { callback(); Dialogs.close()}}
             aria-label={title}
           >
             {_("Delete")}
