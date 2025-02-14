@@ -9,6 +9,7 @@ import { useDialogs } from "dialogs";
 import { BanIcon, CheckIcon } from "@patternfly/react-icons";
 import { RepoDialog } from "./repo_dialog";
 import { RepoChangesContext } from "../app";
+import { ConfirmationDialog } from "./confirmation_dialog";
 
 const _ = cockpit.gettext;
 
@@ -81,10 +82,12 @@ const RepoActions = ({ backend, repo }: { backend: Backend; repo: Repo }) => {
         <DropdownItem
       key="delete-repo"
       onClick={() => {
+        Dialogs.show(<ConfirmationDialog title={cockpit.format(_("Delete $0?"), repo.name)} callback={() => {
           backend.deleteRepo(repo).then(() => {
               if (setReposChanged && reposChanged !== null)
                   setReposChanged(reposChanged + 1);
           });
+        }}/>)
       }}
         >
             {_("Delete repo")}
