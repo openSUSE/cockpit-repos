@@ -88,7 +88,9 @@ const RepoForm = ({
           onChange={(_, value) => onValueChange("alias", value)}
           value={formData.alias}
           placeholder=""
+          isDisabled={editing}
                 />
+                {editing && <p>{_("Repo alias cannot be edited via Cockpit")}</p>}
             </FormGroup>
             <FormGroup label={_("Name")} fieldId="name">
                 <TextInput
@@ -136,7 +138,9 @@ const RepoForm = ({
           onChange={(_, value) => onValueChange("uri", value)}
           value={formData.uri}
           placeholder=""
+          isDisabled={editing}
                 />
+                {editing && <p>{_("Repo Uri cannot be edited via Cockpit")}</p>}
             </FormGroup>
             <ActionGroup>
                 <Button onClick={submit} variant="primary">
