@@ -75,7 +75,7 @@ const RepoActions = ({ backend, repo }: { backend: Backend; repo: Repo }) => {
     const actions = [
         <DropdownItem
       key="edit-repo"
-      onClick={() => Dialogs.show(<RepoDialog backend={backend} repo={repo} />)}
+      onClick={() => Dialogs.show(<RepoDialog title={_("Edit repo")} backend={backend} repo={repo} />)}
         >
             {_("Edit repo")}
         </DropdownItem>,

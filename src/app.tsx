@@ -72,7 +72,7 @@ const RepoCard = () => {
               id="settings-button"
               component="a"
               onClick={() =>
-                  Dialogs.show(<RepoDialog backend={backend} repo={null} />)}
+                  Dialogs.show(<RepoDialog title={_("Add a repo")} backend={backend} repo={null} />)}
                 >
                     {_("Add Repo")}
                 </Button>
