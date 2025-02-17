@@ -20,6 +20,7 @@ type Props = {
 
 export const RepoList = ({ repos, backend }: Props) => {
     const columns = [
+        { title: "#" },
         { title: _("Name") },
         { title: _("Priority") },
         { title: _("GPG Check") },
@@ -35,6 +36,9 @@ export const RepoList = ({ repos, backend }: Props) => {
       rows={repos.map((repo) => {
           return {
               columns: [
+                  {
+                      title: repo.index,
+                  },
                   {
                       title: repo.name,
                   },
@@ -75,7 +79,7 @@ const RepoActions = ({ backend, repo }: { backend: Backend; repo: Repo }) => {
     const actions = [
         <DropdownItem
       key="edit-repo"
-      onClick={() => Dialogs.show(<RepoDialog backend={backend} repo={repo} />)}
+      onClick={() => Dialogs.show(<RepoDialog title={_("Edit repo")} backend={backend} repo={repo} />)}
         >
             {_("Edit repo")}
         </DropdownItem>,

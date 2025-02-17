@@ -10,16 +10,18 @@ const _ = cockpit.gettext;
 
 export const RepoDialog = ({
     backend,
+    title,
     repo,
 }: {
   backend: Backend;
+  title: string,
   repo: null | Repo;
 }) => {
     const Dialogs = useDialogs();
 
     return (
         <Modal
-      title={_("Add a repo")}
+      title={title}
       variant="small"
       onClose={Dialogs.close}
       isOpen

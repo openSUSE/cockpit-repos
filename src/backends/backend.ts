@@ -12,6 +12,8 @@
 //   local_iso_image,
 // }
 
+import { Spawn } from "cockpit"
+
 type Repo = {
   index: number,
   alias: string,
@@ -29,6 +31,7 @@ interface Backend {
   addRepo(repo: Repo): Promise<any>
   deleteRepo(repo: Repo): Promise<any>
   modifyRepo(repo: Repo): Promise<any>
+  refreshRepo(repo: Repo | null, importKeys?: boolean): Spawn<string>
 }
 
 export { Repo, Backend };

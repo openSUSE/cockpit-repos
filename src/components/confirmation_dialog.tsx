@@ -13,7 +13,7 @@ export const ConfirmationDialog = ({
 }: {
   title: string;
   callback: () => void;
-  content: React.ReactNode | undefined;
+  content?: React.ReactNode;
 }) => {
   const Dialogs = useDialogs();
 
@@ -27,7 +27,7 @@ export const ConfirmationDialog = ({
         <>
           <Button
             variant="danger"
-            onClick={callback}
+            onClick={() => { callback(); Dialogs.close()}}
             aria-label={title}
           >
             {_("Delete")}
