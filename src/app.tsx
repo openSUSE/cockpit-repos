@@ -21,6 +21,7 @@ import { Button } from "@patternfly/react-core";
 import { useDialogs, WithDialogs } from "dialogs";
 import { RepoDialog } from "./components/repo_dialog";
 import { EmptyStatePanel } from "cockpit-components-empty-state";
+import { RefreshAllButton } from "./components/repo_refresh";
 
 const _ = cockpit.gettext;
 
@@ -67,6 +68,8 @@ const RepoCard = () => {
             <CardHeader
         actions={{
             actions: (
+                <>
+                <RefreshAllButton backend={backend}/>
                 <Button
               variant="secondary"
               id="settings-button"
@@ -76,6 +79,7 @@ const RepoCard = () => {
                 >
                     {_("Add Repo")}
                 </Button>
+                </>
             ),
         }}
             >

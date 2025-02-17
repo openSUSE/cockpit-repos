@@ -1,4 +1,4 @@
-import cockpit from "cockpit";
+import cockpit, { Spawn } from "cockpit";
 
 import { Backend, Repo } from "./backend";
 
@@ -71,5 +71,19 @@ export class Zypp implements Backend {
             args.push("--no-gpgcheck");
         }
         return cockpit.spawn(["zypper", "modifyrepo", ...args, repo.index.toString()], { superuser: "require" });
+    }
+
+    refreshRepo(repo: Repo | null, importKeys?: boolean): Spawn<string> {
+        let refArgs: string[] = [];
+        let zypArgs: string[] = []
+        // if there's no repos defined, all will be refreshed
+        if (repo) {
+            refArgs = ["-r", repo.index.toString()];
+        }
+        if (importKeys) {
+            zypArgs = ["--gpg-auto-import-keys"];
+        }
+
+        return cockpit.spawn(["zypper", ...zypArgs, "refresh", ...refArgs], { superuser: "require" });
     }
 }
