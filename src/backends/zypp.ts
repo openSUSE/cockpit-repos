@@ -3,7 +3,7 @@ import cockpit, { Spawn } from "cockpit";
 import { Backend, Repo } from "./backend";
 
 export class Zypp implements Backend {
-    deleteRepo(repo: Repo): Promise<any> {
+    deleteRepo(repo: Repo): Promise<string> {
         return cockpit.spawn(["zypper", "removerepo", repo.index.toString()], { superuser: "require" });
     }
 
@@ -33,7 +33,7 @@ export class Zypp implements Backend {
         });
     }
 
-    addRepo(repo: Repo): Promise<any> {
+    addRepo(repo: Repo): Promise<string> {
         const args = ["-n", repo.name, "-p", repo.priority.toString()];
         if (repo.enabled) {
             args.push("--enable");
@@ -56,7 +56,7 @@ export class Zypp implements Backend {
         return cockpit.spawn(["zypper", "addrepo", ...args, repo.uri, repo.alias], { superuser: "require" });
     }
 
-    modifyRepo(repo: Repo): Promise<any> {
+    modifyRepo(repo: Repo): Promise<string> {
         const args = ["-n", repo.name, "-p", repo.priority.toString()];
         if (repo.enabled) {
             args.push("--enable");
@@ -78,7 +78,7 @@ export class Zypp implements Backend {
 
     refreshRepo(repo: Repo | null, importKeys?: boolean): Spawn<string> {
         let refArgs: string[] = [];
-        let zypArgs: string[] = []
+        let zypArgs: string[] = [];
         // if there's no repos defined, all will be refreshed
         if (repo) {
             refArgs = ["-r", repo.index.toString()];

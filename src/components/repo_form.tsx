@@ -52,7 +52,7 @@ const RepoForm = ({
         if (!submitting) {
             // Add repo
             setSubmitting(true);
-            let callback: Promise<any>;
+            let callback: Promise<string>;
             if (editing) {
                 callback = backend.modifyRepo(formData);
             } else {
@@ -69,7 +69,7 @@ const RepoForm = ({
                         setError(response.message);
                     });
         }
-    }, [submitting, formData, reposChanged, setReposChanged]);
+    }, [submitting, formData, reposChanged, setReposChanged, backend, close, editing]);
 
     useEffect(() => {
         if (repo) {

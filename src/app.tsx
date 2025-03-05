@@ -51,9 +51,9 @@ export const Application = () => {
 };
 
 const RepoCard = () => {
-    const [backend, _setBackend] = useState<Backend>(new Zypp());
+    const [backend,] = useState<Backend>(new Zypp());
     const [repos, setRepos] = useState<Repo[]>([]);
-    const { reposChanged, setReposChanged } = useContext(RepoChangesContext);
+    const { reposChanged, } = useContext(RepoChangesContext);
 
     const Dialogs = useDialogs();
 
@@ -69,16 +69,16 @@ const RepoCard = () => {
         actions={{
             actions: (
                 <>
-                <RefreshAllButton backend={backend}/>
-                <Button
+                    <RefreshAllButton backend={backend} />
+                    <Button
               variant="secondary"
               id="settings-button"
               component="a"
               onClick={() =>
                   Dialogs.show(<RepoDialog title={_("Add a repo")} backend={backend} repo={null} />)}
-                >
-                    {_("Add Repo")}
-                </Button>
+                    >
+                        {_("Add Repo")}
+                    </Button>
                 </>
             ),
         }}

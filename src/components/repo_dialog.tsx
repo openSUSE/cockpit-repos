@@ -1,12 +1,9 @@
 import React from "react";
 import { Modal } from "@patternfly/react-core";
-import cockpit from "cockpit";
 
 import { useDialogs } from "dialogs.jsx";
 import RepoForm from "./repo_form";
 import { Backend, Repo } from "../backends/backend";
-
-const _ = cockpit.gettext;
 
 export const RepoDialog = ({
     backend,
