@@ -50,6 +50,9 @@ export class Zypp implements Backend {
         } else {
             args.push("--no-gpgcheck");
         }
+        if (repo.uri.endsWith(".repo")) {
+            args.push(...["-r", repo.uri]);
+        }
         return cockpit.spawn(["zypper", "addrepo", ...args, repo.uri, repo.alias], { superuser: "require" });
     }
 
