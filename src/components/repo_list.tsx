@@ -86,12 +86,16 @@ const RepoActions = ({ backend, repo }: { backend: Backend; repo: Repo }) => {
         <DropdownItem
       key="delete-repo"
       onClick={() => {
-        Dialogs.show(<ConfirmationDialog title={cockpit.format(_("Delete $0?"), repo.name)} callback={() => {
-          backend.deleteRepo(repo).then(() => {
-              if (setReposChanged && reposChanged !== null)
-                  setReposChanged(reposChanged + 1);
-          });
-        }}/>)
+          Dialogs.show(
+              <ConfirmationDialog
+title={cockpit.format(_("Delete $0?"), repo.name)} callback={() => {
+    backend.deleteRepo(repo).then(() => {
+        if (setReposChanged && reposChanged !== null)
+            setReposChanged(reposChanged + 1);
+    });
+}}
+              />
+          );
       }}
         >
             {_("Delete repo")}

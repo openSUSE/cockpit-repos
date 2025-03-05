@@ -6,7 +6,7 @@
     },
     "extends": ["eslint:recommended", "standard", "standard-jsx", "standard-react"],
     "parserOptions": {
-        "ecmaVersion": "2022",
+        "ecmaVersion": 2022,
         "sourceType": "module"
     },
     "plugins": ["react", "react-hooks"],
@@ -37,6 +37,7 @@
         "quotes": "off",
         "react/jsx-curly-spacing": "off",
         "react/jsx-indent-props": "off",
+        "react/jsx-handler-names": "off",
         "react/jsx-no-useless-fragment": "error",
         "react/prop-types": "off",
         "space-before-function-paren": "off",

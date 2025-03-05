@@ -35,7 +35,7 @@ const OkFooter = () => {
             {_("Ok")}
         </Button>
     );
-}
+};
 
 const ErrorFooter = ({
     backend,
@@ -56,14 +56,14 @@ const ErrorFooter = ({
                 onClick={() => {
                     setLoading();
                     backend.refreshRepo(null, true)
-                        .then(() => onLoaded(null))
-                        .catch(reason => {
-                            console.warn(reason);
-                            onLoaded({ err: "unknown" });
-                        })
+                            .then(() => onLoaded(null))
+                            .catch(reason => {
+                                console.warn(reason);
+                                onLoaded({ err: "unknown" });
+                            });
                 }}
             >
-                {error.err == "untrusted" ? _("Trust") : _("Ok")}
+                {error.err === "untrusted" ? _("Trust") : _("Ok")}
             </Button>
             <Button
                 variant="link"
@@ -158,9 +158,9 @@ const RefreshDialog = ({ backend }: { backend: Backend }) => {
 
     React.useEffect(() => {
         backend.refreshRepo(null)
-                .catch((_, reason) => { setError(parseError(reason)) })
+                .catch((_: string, reason: string) => { setError(parseError(reason)) })
                 .finally(() => setRefreshing(false));
-    }, []);
+    }, [backend, setError, setRefreshing]);
 
     return (
         <Modal
@@ -169,23 +169,26 @@ const RefreshDialog = ({ backend }: { backend: Backend }) => {
             onClose={Dialogs.close}
             isOpen
             footer={
-                refreshing ? null : error
-                    ? <ErrorFooter backend={backend} error={error} setLoading={() => setRefreshing(true)} onLoaded={(err) => { setRefreshing(false); setError(err) }} />
-                    : <OkFooter />
+                refreshing
+                    ? null
+                    : error
+                        ? <ErrorFooter backend={backend} error={error} setLoading={() => setRefreshing(true)} onLoaded={(err) => { setRefreshing(false); setError(err) }} />
+                        : <OkFooter />
             }
         >
-            {refreshing ? <EmptyStatePanel loading /> :
-                error ? <ErrorMsg error={error} /> : <p>{_("Refreshing repos was successful")}</p>}
+            {refreshing
+                ? <EmptyStatePanel loading />
+                : error ? <ErrorMsg error={error} /> : <p>{_("Refreshing repos was successful")}</p>}
         </Modal>
     );
-}
+};
 
 export const RefreshAllButton = ({ backend }: { backend: Backend }) => {
     const Dialogs = useDialogs();
 
     const refreshAll = () => {
         Dialogs.show(<RefreshDialog backend={backend} />);
-    }
+    };
 
     return (
         <Button
@@ -196,4 +199,4 @@ export const RefreshAllButton = ({ backend }: { backend: Backend }) => {
             {_("Refresh repositories")}
         </Button>
     );
-}
+};

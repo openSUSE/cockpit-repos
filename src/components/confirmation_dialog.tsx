@@ -7,42 +7,42 @@ import cockpit from "cockpit";
 const _ = cockpit.gettext;
 
 export const ConfirmationDialog = ({
-  title,
-  callback,
-  content,
+    title,
+    callback,
+    content,
 }: {
   title: string;
   callback: () => void;
   content?: React.ReactNode;
 }) => {
-  const Dialogs = useDialogs();
+    const Dialogs = useDialogs();
 
-  return (
-    <Modal
+    return (
+        <Modal
       title={title}
       variant="small"
       onClose={Dialogs.close}
       isOpen
       footer={
-        <>
-          <Button
+          <>
+              <Button
             variant="danger"
-            onClick={() => { callback(); Dialogs.close()}}
+            onClick={() => { callback(); Dialogs.close() }}
             aria-label={title}
-          >
-            {_("Delete")}
-          </Button>
-          <Button
+              >
+                  {_("Delete")}
+              </Button>
+              <Button
             variant="link"
             className="btn-cancel"
             onClick={Dialogs.close}
-          >
-            {_("Cancel")}
-          </Button>
-        </>
+              >
+                  {_("Cancel")}
+              </Button>
+          </>
       }
-    >
-      {content}
-    </Modal>
-  );
+        >
+            {content}
+        </Modal>
+    );
 };
