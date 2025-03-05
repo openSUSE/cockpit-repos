@@ -17,7 +17,13 @@ interface UntrustedRefresh {
     repos: string[];
 }
 
-type RefreshError = UknownRefresh | UntrustedRefresh;
+interface InvalidRefresh {
+    err: "invalid";
+    reason: string,
+    repos: string[];
+}
+
+type RefreshError = UknownRefresh | UntrustedRefresh | InvalidRefresh;
 
 const OkFooter = () => {
     const Dialogs = useDialogs();
@@ -68,16 +74,28 @@ const ErrorFooter = ({
             </Button>
         </>
     );
-}
+};
 
 const ErrorMsg = ({ error }: { error: RefreshError }) => {
-    if (error.err == "untrusted") {
+    if (error.err === "untrusted") {
         return (
             <>
                 <p>{_("Couldn't trust following repos:")}</p>
                 {error.repos.map((err, idx) => <p key={idx}>{err}</p>)}
                 <br />
                 <p>{_("You can trust them, or run \"zypper ref\" as root in console to see more information about the issue")}</p>
+            </>
+        );
+    } else if (error.err === "invalid") {
+        return (
+            <>
+                <p>{_("Couldn't refresh the following repos:")}</p>
+                {error.repos.map((err, idx) => <p key={idx}>{err}</p>)}
+                <br />
+                <p>For Reason:</p>
+                <pre>
+                    {error.reason}
+                </pre>
             </>
         );
     } else {
@@ -88,19 +106,23 @@ const ErrorMsg = ({ error }: { error: RefreshError }) => {
             </>
         );
     }
-}
-
+};
 
 const RefreshDialog = ({ backend }: { backend: Backend }) => {
     const Dialogs = useDialogs();
     const [refreshing, setRefreshing] = React.useState(true);
     const [error, setError] = React.useState<RefreshError | null>(null);
 
-    const parseError = (error: string): UntrustedRefresh => {
-        const regex = /metadata for '([\S ]*)'/gm;
-        const lines = error.replace("\\n", "\n");
-        const repoNames = [];
+    const parseError = (error: string): RefreshError => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(error, "text/xml");
+        const errorMessage = doc.documentElement.querySelector("message[type*='error']");
+        const regex = /\[(.+?)\|.*?\]/gm;
+        const errorRegex = /Error message: (.*?)$/gm;
+        const lines = (errorMessage?.textContent || "").replace("\\n", "\n");
+        const errorMatch = errorRegex.exec(errorMessage?.textContent || "");
         let match;
+        let repoNames: string[] = [];
 
         while ((match = regex.exec(lines)) !== null) {
             // This is necessary to avoid infinite loops with zero-width matches
@@ -111,15 +133,34 @@ const RefreshDialog = ({ backend }: { backend: Backend }) => {
             repoNames.push(match[1]);
         }
 
-        return { err: "untrusted", repos: repoNames };
-    }
+        if ((errorMessage?.textContent || "").includes(" is invalid.") && errorMatch) {
+            return { err: "invalid", reason: errorMatch[1], repos: repoNames };
+        }
+
+        if (error.includes("New repository or package signing key received")) {
+            repoNames = [];
+            const errorMessages = doc.documentElement.querySelectorAll("message[type*='error']");
+            const repoRegex = /'(.*?)'/;
+            errorMessages.forEach((error_message) => {
+                if ((error_message.textContent || "").includes("Skipping repository")) {
+                    const repoName = repoRegex.exec(error_message.textContent || "");
+
+                    if (repoName)
+                        repoNames.push(repoName[1]);
+                }
+            });
+
+            return { err: "untrusted", repos: repoNames };
+        }
+
+        return { err: "unknown" };
+    };
 
     React.useEffect(() => {
         backend.refreshRepo(null)
-            .catch(reason => { setError(parseError(reason.message)) })
-            .finally(() => setRefreshing(false));
+                .catch((_, reason) => { setError(parseError(reason)) })
+                .finally(() => setRefreshing(false));
     }, []);
-
 
     return (
         <Modal
