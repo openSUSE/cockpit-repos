@@ -2,6 +2,8 @@ import {
     ActionGroup,
     Button,
     Checkbox,
+    CodeBlock,
+    CodeBlockCode,
     Form,
     FormGroup,
     TextInput,
@@ -27,6 +29,7 @@ const RepoForm = ({
     const { reposChanged, setReposChanged } = useContext(RepoChangesContext);
     const [editing, setEditing] = useState<boolean>(false);
     const [submitting, setSubmitting] = useState<boolean>(false);
+    const [error, setError] = useState<string | null>(null);
     const [formData, setFormData] = useState<Repo>({
         index: 0,
         alias: "",
@@ -37,10 +40,6 @@ const RepoForm = ({
         gpgcheck: true,
         uri: "",
     });
-
-    useEffect(() => {
-        console.log(reposChanged);
-    }, [reposChanged]);
 
     const onValueChange = useCallback(
         (fieldName: string, value: string | number | boolean) => {
@@ -59,14 +58,16 @@ const RepoForm = ({
             } else {
                 callback = backend.addRepo(formData);
             }
-            callback.then((response) => {
-                console.log(response);
-                console.log(reposChanged, setReposChanged);
+            callback.then(() => {
                 if (setReposChanged !== null && reposChanged !== null)
                     setReposChanged(reposChanged + 1);
                 setSubmitting(false);
                 close();
-            });
+            })
+                    .catch((response) => {
+                        setSubmitting(false);
+                        setError(response.message);
+                    });
         }
     }, [submitting, formData, reposChanged, setReposChanged]);
 
@@ -79,6 +80,18 @@ const RepoForm = ({
 
     if (submitting)
         return <EmptyStatePanel loading />;
+
+    if (error)
+        return (
+            <>
+                <p>{_("There was an error adding the repo:")}</p>
+                <CodeBlock className='pf-v5-u-mx-auto error-log'>
+                    <CodeBlockCode>
+                        {error}
+                    </CodeBlockCode>
+                </CodeBlock>
+            </>
+        );
 
     return (
         <Form>

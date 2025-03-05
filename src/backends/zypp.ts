@@ -87,6 +87,6 @@ export class Zypp implements Backend {
             zypArgs = ["--gpg-auto-import-keys"];
         }
 
-        return cockpit.spawn(["zypper", ...zypArgs, "refresh", ...refArgs], { superuser: "require" });
+        return cockpit.spawn(["zypper", "--xmlout", ...zypArgs, "refresh", "-f", ...refArgs], { superuser: "require", err: "message" });
     }
 }
