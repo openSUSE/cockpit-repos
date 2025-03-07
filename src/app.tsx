@@ -68,7 +68,8 @@ export const Application = () => {
 const RepoCard = () => {
     const [backend,] = useState<Backend>(new Zypp());
     const [repos, setRepos] = useState<Repo[]>([]);
-    const { reposChanged, } = useContext(RepoChangesContext);
+    const { reposChanged, setReposChanged } = useContext(RepoChangesContext);
+    const [reposHash, setReposHash] = useState<string>("");
 
     const Dialogs = useDialogs();
     const superuserAllowed = useContext(SuperuserContext);
@@ -78,6 +79,22 @@ const RepoCard = () => {
             setRepos(repos);
         });
     }, [backend, reposChanged]);
+
+    useEffect(() => {
+        const reposUpdate = setInterval(() => {
+            backend.getReposHash()
+                    .then((response) => {
+                        const newHash = response.split(" ")[0];
+
+                        if (newHash !== reposHash) {
+                            setReposHash(newHash);
+                            setReposChanged(reposChanged + 1);
+                        }
+                    });
+        }, 1000);
+
+        return () => clearInterval(reposUpdate);
+    }, [reposHash, setReposHash, reposChanged, setReposChanged, backend]);
 
     return (
         <Page>
