@@ -32,6 +32,7 @@ interface Backend {
   deleteRepo(repo: Repo): Promise<string>
   modifyRepo(repo: Repo): Promise<string>
   refreshRepo(repo: Repo | null, importKeys?: boolean): Spawn<string>
+  getReposHash(): Spawn<string>
 }
 
 export { Repo, Backend };

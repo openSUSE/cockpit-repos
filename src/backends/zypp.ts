@@ -89,4 +89,8 @@ export class Zypp implements Backend {
 
         return cockpit.spawn(["zypper", "--xmlout", ...zypArgs, "refresh", "-f", ...refArgs], { superuser: "require", err: "message" });
     }
+
+    getReposHash(): Spawn<string> {
+        return cockpit.spawn(["bash", "-c", "zypper repos -d | md5sum"]);
+    }
 }
