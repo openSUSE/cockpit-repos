@@ -8,7 +8,7 @@ import { DropdownItem } from "@patternfly/react-core";
 import { useDialogs } from "dialogs";
 import { BanIcon, CheckIcon } from "@patternfly/react-icons";
 import { RepoDialog } from "./repo_dialog";
-import { RepoChangesContext } from "../app";
+import { RepoChangesContext, SuperuserContext } from "../app";
 import { ConfirmationDialog } from "./confirmation_dialog";
 
 const _ = cockpit.gettext;
@@ -76,6 +76,8 @@ const RepoActions = ({ backend, repo }: { backend: Backend; repo: Repo }) => {
     const Dialogs = useDialogs();
     const { reposChanged, setReposChanged } = useContext(RepoChangesContext);
 
+    const superuserAllowed = useContext(SuperuserContext);
+
     const actions = [
         <DropdownItem
       key="edit-repo"
@@ -101,6 +103,9 @@ title={cockpit.format(_("Delete $0?"), repo.name)} callback={() => {
             {_("Delete repo")}
         </DropdownItem>,
     ];
+
+    if (!superuserAllowed)
+        return;
 
     return (
         <KebabDropdown toggleButtonId="repos-actions" dropdownItems={actions} />
