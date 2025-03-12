@@ -30,7 +30,7 @@ const OkFooter = () => {
     return (
         <Button
             variant="primary"
-            onClick={Dialogs.close}
+            onClick={() => Dialogs.close()}
         >
             {_("Ok")}
         </Button>
@@ -56,11 +56,11 @@ const ErrorFooter = ({
                 onClick={() => {
                     setLoading();
                     backend.refreshRepo(null, true)
-                            .then(() => onLoaded(null))
-                            .catch(reason => {
-                                console.warn(reason);
-                                onLoaded({ err: "unknown" });
-                            });
+                                    .then(() => onLoaded(null))
+                                    .catch(reason => {
+                                        console.warn(reason);
+                                        onLoaded({ err: "unknown" });
+                                    });
                 }}
             >
                 {error.err === "untrusted" ? _("Trust") : _("Ok")}
@@ -68,7 +68,7 @@ const ErrorFooter = ({
             <Button
                 variant="link"
                 className="btn-cancel"
-                onClick={Dialogs.close}
+                onClick={() => Dialogs.close()}
             >
                 {_("Cancel")}
             </Button>
@@ -158,15 +158,15 @@ const RefreshDialog = ({ backend }: { backend: Backend }) => {
 
     React.useEffect(() => {
         backend.refreshRepo(null)
-                .catch((_: string, reason: string) => { setError(parseError(reason)) })
-                .finally(() => setRefreshing(false));
+                        .catch((_: string, reason: string) => { setError(parseError(reason)) })
+                        .finally(() => setRefreshing(false));
     }, [backend, setError, setRefreshing]);
 
     return (
         <Modal
             title={_("Refreshing repositories")}
             variant="small"
-            onClose={Dialogs.close}
+            onClose={() => Dialogs.close()}
             isOpen
             footer={
                 refreshing

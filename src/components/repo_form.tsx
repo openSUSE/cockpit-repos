@@ -22,9 +22,9 @@ const RepoForm = ({
     repo,
     close,
 }: {
-  backend: Backend;
-  repo: null | Repo;
-  close: () => void;
+    backend: Backend;
+    repo: null | Repo;
+    close: () => void;
 }) => {
     const { reposChanged, setReposChanged } = useContext(RepoChangesContext);
     const [editing, setEditing] = useState<boolean>(false);
@@ -63,11 +63,10 @@ const RepoForm = ({
                     setReposChanged(reposChanged + 1);
                 setSubmitting(false);
                 close();
-            })
-                    .catch((response) => {
-                        setSubmitting(false);
-                        setError(response.message);
-                    });
+            }).catch((response) => {
+                setSubmitting(false);
+                setError(response.message);
+            });
         }
     }, [submitting, formData, reposChanged, setReposChanged, backend, close, editing]);
 
@@ -97,61 +96,61 @@ const RepoForm = ({
         <Form>
             <FormGroup label={_("Alias")} fieldId="alias">
                 <TextInput
-          aria-label="Alias"
-          onChange={(_, value) => onValueChange("alias", value)}
-          value={formData.alias}
-          placeholder=""
-          isDisabled={editing}
+                    aria-label="Alias"
+                    onChange={(_, value) => onValueChange("alias", value)}
+                    value={formData.alias}
+                    placeholder=""
+                    isDisabled={editing}
                 />
                 {editing && <p>{_("Repo alias cannot be edited via Cockpit")}</p>}
             </FormGroup>
             <FormGroup label={_("Name")} fieldId="name">
                 <TextInput
-          aria-label="Name"
-          onChange={(_, value) => onValueChange("name", value)}
-          value={formData.name}
-          placeholder=""
+                    aria-label="Name"
+                    onChange={(_, value) => onValueChange("name", value)}
+                    value={formData.name}
+                    placeholder=""
                 />
             </FormGroup>
             <FormGroup label={_("Priority")} fieldId="priority">
                 <TextInput
-          aria-label="Priority"
-          onChange={(_, value) => onValueChange("priority", value)}
-          value={formData.priority}
-          placeholder="99"
+                    aria-label="Priority"
+                    onChange={(_, value) => onValueChange("priority", value)}
+                    value={formData.priority}
+                    placeholder="99"
                 />
             </FormGroup>
             <FormGroup label={_("Enabled")} fieldId="enabled">
                 <Checkbox
-          id="enabled"
-          aria-label="Enabled"
-          onChange={(_, value) => onValueChange("enabled", value)}
-          isChecked={formData.enabled}
+                    id="enabled"
+                    aria-label="Enabled"
+                    onChange={(_, value) => onValueChange("enabled", value)}
+                    isChecked={formData.enabled}
                 />
             </FormGroup>
             <FormGroup label={_("Autorefresh")} fieldId="autorefresh">
                 <Checkbox
-          id="autorefresh"
-          aria-label="Autorefresh"
-          onChange={(_, value) => onValueChange("autorefresh", value)}
-          isChecked={formData.autorefresh}
+                    id="autorefresh"
+                    aria-label="Autorefresh"
+                    onChange={(_, value) => onValueChange("autorefresh", value)}
+                    isChecked={formData.autorefresh}
                 />
             </FormGroup>
             <FormGroup label={_("GPG Check")} fieldId="gpg_check">
                 <Checkbox
-          id="gpg_check"
-          aria-label="GPG Check"
-          onChange={(_, value) => onValueChange("gpgcheck", value)}
-          isChecked={formData.gpgcheck}
+                    id="gpg_check"
+                    aria-label="GPG Check"
+                    onChange={(_, value) => onValueChange("gpgcheck", value)}
+                    isChecked={formData.gpgcheck}
                 />
             </FormGroup>
             <FormGroup label={_("Uri")} fieldId="uri">
                 <TextInput
-          aria-label="Uri"
-          onChange={(_, value) => onValueChange("uri", value)}
-          value={formData.uri}
-          placeholder=""
-          isDisabled={editing}
+                    aria-label="Uri"
+                    onChange={(_, value) => onValueChange("uri", value)}
+                    value={formData.uri}
+                    placeholder=""
+                    isDisabled={editing}
                 />
                 {editing && <p>{_("Repo Uri cannot be edited via Cockpit")}</p>}
             </FormGroup>
