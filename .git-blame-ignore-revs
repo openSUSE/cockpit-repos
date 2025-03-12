@@ -1,0 +1,6 @@
+# If a commit modifies a ton of files and doesn't really contribute to the
+# output of git-blame, please add it here
+#
+# 2025 - Initial fixing of eslint rules
+b051d955d0c9831f6e45a78d7f49d765f94d01c8
+
