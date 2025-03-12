@@ -10,18 +10,18 @@ export const RepoDialog = ({
     title,
     repo,
 }: {
-  backend: Backend;
-  title: string,
-  repo: null | Repo;
+    backend: Backend;
+    title: string,
+    repo: null | Repo;
 }) => {
     const Dialogs = useDialogs();
 
     return (
         <Modal
-      title={title}
-      variant="small"
-      onClose={Dialogs.close}
-      isOpen
+            title={title}
+            variant="small"
+            onClose={() => Dialogs.close()}
+            isOpen
         >
             <RepoForm backend={backend} repo={repo} close={Dialogs.close} />
         </Modal>

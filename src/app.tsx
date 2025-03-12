@@ -29,8 +29,8 @@ import { LockIcon } from "@patternfly/react-icons";
 const _ = cockpit.gettext;
 
 export const RepoChangesContext = createContext<{
-  reposChanged: number | null;
-  setReposChanged: Dispatch<SetStateAction<number>> | null;
+    reposChanged: number | null;
+    setReposChanged: Dispatch<SetStateAction<number>> | null;
 }>({
     reposChanged: null,
     setReposChanged: null,
@@ -52,10 +52,10 @@ export const Application = () => {
     return (
         <SuperuserContext.Provider value={superuserValue}>
             <RepoChangesContext.Provider
-          value={{
-              reposChanged,
-              setReposChanged,
-          }}
+                value={{
+                    reposChanged,
+                    setReposChanged,
+                }}
             >
                 <WithDialogs>
                     <RepoCard />
@@ -82,15 +82,14 @@ const RepoCard = () => {
 
     useEffect(() => {
         const reposUpdate = setInterval(() => {
-            backend.getReposHash()
-                    .then((response) => {
-                        const newHash = response.split(" ")[0];
+            backend.getReposHash().then((response) => {
+                const newHash = response.split(" ")[0];
 
-                        if (newHash !== reposHash) {
-                            setReposHash(newHash);
-                            setReposChanged(reposChanged + 1);
-                        }
-                    });
+                if (newHash !== reposHash) {
+                    setReposHash(newHash);
+                    setReposChanged(reposChanged + 1);
+                }
+            });
         }, 1000);
 
         return () => clearInterval(reposUpdate);
@@ -101,34 +100,34 @@ const RepoCard = () => {
             {!superuserAllowed
                 ? (
                     <Alert
-className="ct-limited-access-alert"
-                  variant="warning" isInline
-                  customIcon={<LockIcon />}
-                  title={_("Web console is running in limited access mode. To add or edit a repository please turn on administrative access")}
+                        className="ct-limited-access-alert"
+                        variant="warning" isInline
+                        customIcon={<LockIcon />}
+                        title={_("Web console is running in limited access mode. To add or edit a repository please turn on administrative access")}
                     />
                 )
                 : ""}
             <PageSection>
                 <Card>
                     <CardHeader
-        actions={{
-            actions: superuserAllowed === true
-                ? (
-                    <>
-                        <RefreshAllButton backend={backend} />
-                        <Button
-              variant="secondary"
-              id="settings-button"
-              component="a"
-              onClick={() =>
-                  Dialogs.show(<RepoDialog title={_("Add a repo")} backend={backend} repo={null} />)}
-                        >
-                            {_("Add Repo")}
-                        </Button>
-                    </>
-                )
-                : "",
-        }}
+                        actions={{
+                            actions: superuserAllowed === true
+                                ? (
+                                    <>
+                                        <RefreshAllButton backend={backend} />
+                                        <Button
+                                            variant="secondary"
+                                            id="settings-button"
+                                            component="a"
+                                            onClick={() =>
+                                                Dialogs.show(<RepoDialog title={_("Add a repo")} backend={backend} repo={null} />)}
+                                        >
+                                            {_("Add Repo")}
+                                        </Button>
+                                    </>
+                                )
+                                : "",
+                        }}
                     >
                         <CardTitle>{_("Software Repositories")}</CardTitle>
                     </CardHeader>

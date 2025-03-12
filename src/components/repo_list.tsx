@@ -14,8 +14,8 @@ import { ConfirmationDialog } from "./confirmation_dialog";
 const _ = cockpit.gettext;
 
 type Props = {
-  repos: Repo[];
-  backend: Backend;
+    repos: Repo[];
+    backend: Backend;
 };
 
 export const RepoList = ({ repos, backend }: Props) => {
@@ -30,44 +30,44 @@ export const RepoList = ({ repos, backend }: Props) => {
 
     return (
         <ListingTable
-      columns={columns}
-      id="repos-list"
-      isEmptyStateInTable={repos.length > 0}
-      rows={repos.map((repo) => {
-          return {
-              columns: [
-                  {
-                      title: repo.index,
-                  },
-                  {
-                      title: repo.name,
-                  },
-                  {
-                      title: repo.priority,
-                      props: { width: 10 },
-                  },
-                  {
-                      title: repo.gpgcheck ? <CheckIcon /> : <BanIcon />,
-                      props: { width: 10 },
-                  },
-                  {
-                      title: repo.autorefresh ? <CheckIcon /> : <BanIcon />,
-                      props: { width: 10 },
-                  },
-                  {
-                      title: repo.enabled ? <CheckIcon /> : <BanIcon />,
-                      props: { width: 10 },
-                  },
-                  {
-                      title: <RepoActions backend={backend} repo={repo} />,
-                      props: { className: "pf-v5-c-table__action" },
-                  },
-              ],
-              props: { key: repo.alias },
-          };
-      })}
-      loading={repos.length ? "" : _("Loading...")}
-      variant="compact"
+            columns={columns}
+            id="repos-list"
+            isEmptyStateInTable={repos.length > 0}
+            rows={repos.map((repo) => {
+                return {
+                    columns: [
+                        {
+                            title: repo.index,
+                        },
+                        {
+                            title: repo.name,
+                        },
+                        {
+                            title: repo.priority,
+                            props: { width: 10 },
+                        },
+                        {
+                            title: repo.gpgcheck ? <CheckIcon /> : <BanIcon />,
+                            props: { width: 10 },
+                        },
+                        {
+                            title: repo.autorefresh ? <CheckIcon /> : <BanIcon />,
+                            props: { width: 10 },
+                        },
+                        {
+                            title: repo.enabled ? <CheckIcon /> : <BanIcon />,
+                            props: { width: 10 },
+                        },
+                        {
+                            title: <RepoActions backend={backend} repo={repo} />,
+                            props: { className: "pf-v5-c-table__action" },
+                        },
+                    ],
+                    props: { key: repo.alias },
+                };
+            })}
+            loading={repos.length ? "" : _("Loading...")}
+            variant="compact"
         />
     );
 };
@@ -80,25 +80,25 @@ const RepoActions = ({ backend, repo }: { backend: Backend; repo: Repo }) => {
 
     const actions = [
         <DropdownItem
-      key="edit-repo"
-      onClick={() => Dialogs.show(<RepoDialog title={_("Edit repo")} backend={backend} repo={repo} />)}
+            key="edit-repo"
+            onClick={() => Dialogs.show(<RepoDialog title={_("Edit repo")} backend={backend} repo={repo} />)}
         >
             {_("Edit repo")}
         </DropdownItem>,
         <DropdownItem
-      key="delete-repo"
-      onClick={() => {
-          Dialogs.show(
-              <ConfirmationDialog
-title={cockpit.format(_("Delete $0?"), repo.name)} callback={() => {
-    backend.deleteRepo(repo).then(() => {
-        if (setReposChanged && reposChanged !== null)
-            setReposChanged(reposChanged + 1);
-    });
-}}
-              />
-          );
-      }}
+            key="delete-repo"
+            onClick={() => {
+                Dialogs.show(
+                    <ConfirmationDialog
+                        title={cockpit.format(_("Delete $0?"), repo.name)} callback={() => {
+                            backend.deleteRepo(repo).then(() => {
+                                if (setReposChanged && reposChanged !== null)
+                                    setReposChanged(reposChanged + 1);
+                            });
+                        }}
+                    />
+                );
+            }}
         >
             {_("Delete repo")}
         </DropdownItem>,
