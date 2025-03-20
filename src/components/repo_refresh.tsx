@@ -1,15 +1,20 @@
-import React from "react";
+import React, { Dispatch } from "react";
 import { Button, Modal } from "@patternfly/react-core";
 import { useDialogs } from "dialogs";
 import { Backend } from "../backends/backend";
 
-import cockpit from "cockpit.js";
+import cockpit, { Spawn } from "cockpit.js";
 import { EmptyStatePanel } from "cockpit-components-empty-state";
 
 const _ = cockpit.gettext;
 
 interface UknownRefresh {
     err: "unknown";
+}
+
+interface LockedRefresh {
+    err: "locked";
+    message: string;
 }
 
 interface UntrustedRefresh {
@@ -23,7 +28,7 @@ interface InvalidRefresh {
     repos: string[];
 }
 
-type RefreshError = UknownRefresh | UntrustedRefresh | InvalidRefresh;
+type RefreshError = UknownRefresh | LockedRefresh | UntrustedRefresh | InvalidRefresh;
 
 const OkFooter = () => {
     const Dialogs = useDialogs();
@@ -40,35 +45,56 @@ const OkFooter = () => {
 const ErrorFooter = ({
     backend,
     error,
+    refreshing,
+    setRefreshing,
     setLoading,
-    onLoaded
+    onLoaded,
 }: {
     backend: Backend,
     error: RefreshError,
+    refreshing: Spawn<string> | null
+    setRefreshing: Dispatch<Spawn<string> | null>,
     setLoading: () => void,
     onLoaded: (err: RefreshError | null) => void
 }) => {
     const Dialogs = useDialogs();
+
+    const untrustedButton = (
+        <Button
+            variant="danger"
+            onClick={() => {
+                setLoading();
+                const refresh = backend.refreshRepo(null, true);
+
+                refresh.then(() => {
+                    onLoaded(null);
+                    setRefreshing(null);
+                })
+                                .catch(reason => {
+                                    console.warn(reason);
+                                    onLoaded({ err: "unknown" });
+                                });
+                setRefreshing(refresh);
+            }}
+        >
+            {_("Trust")}
+        </Button>
+    );
+
     return (
         <>
-            <Button
-                variant="danger"
-                onClick={() => {
-                    setLoading();
-                    backend.refreshRepo(null, true)
-                                    .then(() => onLoaded(null))
-                                    .catch(reason => {
-                                        console.warn(reason);
-                                        onLoaded({ err: "unknown" });
-                                    });
-                }}
-            >
-                {error.err === "untrusted" ? _("Trust") : _("Ok")}
-            </Button>
+            { error.err === "untrusted"
+                ? untrustedButton
+                : <Button variant="primary" onClick={() => Dialogs.close()}>{_("Okay")}</Button>}
             <Button
                 variant="link"
                 className="btn-cancel"
-                onClick={() => Dialogs.close()}
+                onClick={() => {
+                    if (refreshing) {
+                        refreshing.close("terminated");
+                    }
+                    Dialogs.close();
+                }}
             >
                 {_("Cancel")}
             </Button>
@@ -98,6 +124,10 @@ const ErrorMsg = ({ error }: { error: RefreshError }) => {
                 </pre>
             </>
         );
+    } else if (error.err === "locked") {
+        return (
+            <p>{error.message}</p>
+        );
     } else {
         return (
             <>
@@ -111,9 +141,11 @@ const ErrorMsg = ({ error }: { error: RefreshError }) => {
 const RefreshDialog = ({ backend }: { backend: Backend }) => {
     const Dialogs = useDialogs();
     const [refreshing, setRefreshing] = React.useState(true);
+    const [refreshProcess, setRefreshProcess] = React.useState<Spawn<string> | null>(null);
     const [error, setError] = React.useState<RefreshError | null>(null);
 
     const parseError = (error: string): RefreshError => {
+        console.log(error);
         const parser = new DOMParser();
         const doc = parser.parseFromString(error, "text/xml");
         const errorMessage = doc.documentElement.querySelector("message[type*='error']");
@@ -153,26 +185,39 @@ const RefreshDialog = ({ backend }: { backend: Backend }) => {
             return { err: "untrusted", repos: repoNames };
         }
 
+        if (error.includes("is blocking zypper")) {
+            return { err: "locked", message: doc.documentElement.querySelector("message[type*='info']").textContent || "" };
+        }
+
         return { err: "unknown" };
     };
 
     React.useEffect(() => {
-        backend.refreshRepo(null)
-                        .catch((_: string, reason: string) => { setError(parseError(reason)) })
-                        .finally(() => setRefreshing(false));
+        const refresh = backend.refreshRepo(null);
+        refresh.catch((_: string, reason: string) => { setError(parseError(reason)) })
+                        .finally(() => {
+                            setRefreshing(false);
+                            setRefreshProcess(null);
+                        });
+        setRefreshProcess(refresh);
     }, [backend, setError, setRefreshing]);
 
     return (
         <Modal
             title={_("Refreshing repositories")}
             variant="small"
-            onClose={() => Dialogs.close()}
+            onClose={() => {
+                if (refreshProcess) {
+                    refreshProcess.close();
+                }
+                Dialogs.close();
+            }}
             isOpen
             footer={
                 refreshing
                     ? null
                     : error
-                        ? <ErrorFooter backend={backend} error={error} setLoading={() => setRefreshing(true)} onLoaded={(err) => { setRefreshing(false); setError(err) }} />
+                        ? <ErrorFooter backend={backend} error={error} setLoading={() => setRefreshing(true)} onLoaded={(err) => { setRefreshing(false); setError(err) } } refreshing={refreshProcess} setRefreshing={setRefreshProcess} />
                         : <OkFooter />
             }
         >
