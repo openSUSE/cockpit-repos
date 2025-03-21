@@ -26,6 +26,28 @@ type Repo = {
   uri: string,
 }
 
+interface UknownRefresh {
+    err: "unknown";
+}
+
+interface LockedRefresh {
+    err: "locked";
+    message: string;
+}
+
+interface UntrustedRefresh {
+    err: "untrusted";
+    repos: string[];
+}
+
+interface InvalidRefresh {
+    err: "invalid";
+    reason: string,
+    repos: string[];
+}
+
+export type RefreshError = UknownRefresh | LockedRefresh | UntrustedRefresh | InvalidRefresh;
+
 interface Backend {
   getRepos(): Promise<Repo[]>,
   addRepo(repo: Repo): Promise<string>
@@ -33,6 +55,8 @@ interface Backend {
   modifyRepo(repo: Repo): Promise<string>
   refreshRepo(repo: Repo | null, importKeys?: boolean): Spawn<string>
   getReposHash(): Spawn<string>
+  parseError(error: string): RefreshError
+  getErrorMsg(error: RefreshError): React.ReactNode
 }
 
 export { Repo, Backend };

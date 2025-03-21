@@ -4,7 +4,7 @@ import { ListingTable } from "cockpit-components-table.jsx";
 import { KebabDropdown } from "cockpit-components-dropdown";
 
 import cockpit from "cockpit";
-import { DropdownItem } from "@patternfly/react-core";
+import { Button, DropdownItem, Modal } from "@patternfly/react-core";
 import { useDialogs } from "dialogs";
 import { BanIcon, CheckIcon } from "@patternfly/react-icons";
 import { RepoDialog } from "./repo_dialog";
@@ -94,6 +94,27 @@ const RepoActions = ({ backend, repo }: { backend: Backend; repo: Repo }) => {
                             backend.deleteRepo(repo).then(() => {
                                 if (setReposChanged && reposChanged !== null)
                                     setReposChanged(reposChanged + 1);
+                            }).catch((__: string, response: string) => {
+                                const error = backend.getErrorMsg(backend.parseError(response));
+                                Dialogs.show(
+                                    <Modal
+                                        title={cockpit.format(_("Delete $0?"), repo.name)}
+                                        variant="small"
+                                        onClose={() => {
+                                            Dialogs.close();
+                                        }}
+                                        isOpen
+                                        footer={
+                                            <Button
+                                                variant="primary"
+                                                onClick={() => Dialogs.close()}
+                                            >
+                                                {_("Ok")}
+                                            </Button>
+                                        }
+                                    >
+                                        {error}
+                                    </Modal>);
                             });
                         }}
                     />
