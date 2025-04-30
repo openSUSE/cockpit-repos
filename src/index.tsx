@@ -22,7 +22,7 @@ import { createRoot } from "react-dom/client";
 
 import "cockpit-dark-theme";
 
-import "patternfly/patternfly-5-cockpit.scss";
+import "patternfly/patternfly-6-cockpit.scss";
 import "./app.scss";
 import { Application } from "./app";
 
