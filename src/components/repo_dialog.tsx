@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal } from "@patternfly/react-core";
+import { Modal, ModalHeader } from "@patternfly/react-core";
 
 import { useDialogs } from "dialogs.jsx";
 import RepoForm from "./repo_form";
@@ -23,7 +23,9 @@ export const RepoDialog = ({
             onClose={() => Dialogs.close()}
             isOpen
         >
-            <RepoForm backend={backend} repo={repo} close={Dialogs.close} />
+            <ModalHeader>
+                <RepoForm backend={backend} repo={repo} close={Dialogs.close} />
+            </ModalHeader>
         </Modal>
     );
 };

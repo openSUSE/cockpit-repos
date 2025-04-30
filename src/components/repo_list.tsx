@@ -4,7 +4,7 @@ import { ListingTable } from "cockpit-components-table.jsx";
 import { KebabDropdown } from "cockpit-components-dropdown";
 
 import cockpit from "cockpit";
-import { Button, DropdownItem, Modal } from "@patternfly/react-core";
+import { Button, DropdownItem, Modal, ModalFooter, ModalHeader } from "@patternfly/react-core";
 import { useDialogs } from "dialogs";
 import { BanIcon, CheckIcon } from "@patternfly/react-icons";
 import { RepoDialog } from "./repo_dialog";
@@ -33,6 +33,7 @@ export const RepoList = ({ repos, backend }: Props) => {
             columns={columns}
             id="repos-list"
             isEmptyStateInTable={repos.length > 0}
+            borders={false}
             rows={repos.map((repo) => {
                 return {
                     columns: [
@@ -60,7 +61,7 @@ export const RepoList = ({ repos, backend }: Props) => {
                         },
                         {
                             title: <RepoActions backend={backend} repo={repo} />,
-                            props: { className: "pf-v5-c-table__action" },
+                            props: { className: "pf-v6-c-table__action" },
                         },
                     ],
                     props: { key: repo.alias },
@@ -104,16 +105,19 @@ const RepoActions = ({ backend, repo }: { backend: Backend; repo: Repo }) => {
                                             Dialogs.close();
                                         }}
                                         isOpen
-                                        footer={
+                                    >
+                                        <ModalHeader>
+                                            {error}
+                                        </ModalHeader>
+                                        <ModalFooter>
                                             <Button
                                                 variant="primary"
                                                 onClick={() => Dialogs.close()}
                                             >
                                                 {_("Ok")}
                                             </Button>
-                                        }
-                                    >
-                                        {error}
+                                        </ModalFooter>
+
                                     </Modal>);
                             });
                         }}

@@ -17,7 +17,7 @@ import cockpit from "cockpit";
 import { Zypp } from "./backends/zypp";
 import { Backend, Repo } from "./backends/backend";
 import { RepoList } from "./components/repo_list";
-import { Alert, Button, Page, PageSection } from "@patternfly/react-core";
+import { Alert, Button, Page, PageSection, PageSidebar } from "@patternfly/react-core";
 import { useDialogs, WithDialogs } from "dialogs";
 import { RepoDialog } from "./components/repo_dialog";
 import { EmptyStatePanel } from "cockpit-components-empty-state";
@@ -65,6 +65,9 @@ export const Application = () => {
     );
 };
 
+// Hack to hide the Sidebar area in patternfly 6 Page
+const emptySidebar = <PageSidebar isSidebarOpen={false} />;
+
 const RepoCard = () => {
     const [backend,] = useState<Backend>(new Zypp());
     const [repos, setRepos] = useState<Repo[]>([]);
@@ -96,7 +99,7 @@ const RepoCard = () => {
     }, [reposHash, setReposHash, reposChanged, setReposChanged, backend]);
 
     return (
-        <Page>
+        <Page sidebar={emptySidebar}>
             {!superuserAllowed
                 ? (
                     <Alert
@@ -108,7 +111,7 @@ const RepoCard = () => {
                 )
                 : ""}
             <PageSection>
-                <Card>
+                <Card isPlain>
                     <CardHeader
                         actions={{
                             actions: superuserAllowed === true

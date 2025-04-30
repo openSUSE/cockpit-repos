@@ -1,5 +1,5 @@
 import React, { Dispatch } from "react";
-import { Button, Modal } from "@patternfly/react-core";
+import { Button, Modal, ModalFooter, ModalHeader } from "@patternfly/react-core";
 import { useDialogs } from "dialogs";
 import { Backend, RefreshError } from "../backends/backend";
 
@@ -107,17 +107,21 @@ const RefreshDialog = ({ backend }: { backend: Backend }) => {
                 Dialogs.close();
             }}
             isOpen
-            footer={
-                refreshing
-                    ? null
-                    : error
-                        ? <ErrorFooter backend={backend} error={error} setLoading={() => setRefreshing(true)} onLoaded={(err) => { setRefreshing(false); setError(err) } } refreshing={refreshProcess} setRefreshing={setRefreshProcess} />
-                        : <OkFooter />
-            }
         >
-            {refreshing
-                ? <EmptyStatePanel loading />
-                : error ? backend.getErrorMsg(error) : <p>{_("Refreshing repos was successful")}</p>}
+            <ModalHeader>
+                {refreshing
+                    ? <EmptyStatePanel loading />
+                    : error ? backend.getErrorMsg(error) : <p>{_("Refreshing repos was successful")}</p>}
+            </ModalHeader>
+            <ModalFooter>
+                {
+                    refreshing
+                        ? null
+                        : error
+                            ? <ErrorFooter backend={backend} error={error} setLoading={() => setRefreshing(true)} onLoaded={(err) => { setRefreshing(false); setError(err) } } refreshing={refreshProcess} setRefreshing={setRefreshProcess} />
+                            : <OkFooter />
+                }
+            </ModalFooter>
         </Modal>
     );
 };
