@@ -42,6 +42,7 @@ BuildRequires: gettext
 %if 0%{?rhel} && 0%{?rhel} <= 8
 BuildRequires: libappstream-glib-devel
 %endif
+BuildRequires: cockpit-devel >= 337
 
 Requires: cockpit-bridge
 
