@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Modal } from "@patternfly/react-core";
+import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from "@patternfly/react-core";
 import { useDialogs } from "dialogs";
 
 import cockpit from "cockpit";
@@ -19,11 +19,15 @@ export const ConfirmationDialog = ({
 
     return (
         <Modal
-            title={title}
             variant="small"
             onClose={() => Dialogs.close()}
             isOpen
-            footer={
+        >
+            <ModalHeader title={title} />
+            <ModalBody>
+                {content}
+            </ModalBody>
+            <ModalFooter>
                 <>
                     <Button
                         variant="danger"
@@ -40,9 +44,7 @@ export const ConfirmationDialog = ({
                         {_("Cancel")}
                     </Button>
                 </>
-            }
-        >
-            {content}
+            </ModalFooter>
         </Modal>
     );
 };

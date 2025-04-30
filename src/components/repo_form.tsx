@@ -84,7 +84,7 @@ const RepoForm = ({
         return (
             <>
                 <p>{_("There was an error adding the repo:")}</p>
-                <CodeBlock className='pf-v5-u-mx-auto error-log'>
+                <CodeBlock className='pf-v6-u-mx-auto error-log'>
                     <CodeBlockCode>
                         {error}
                     </CodeBlockCode>
