@@ -13,7 +13,7 @@ PREFIX ?= /usr/local
 APPSTREAMFILE=org.opensuse.$(subst -,_,$(PACKAGE_NAME)).metainfo.xml
 VM_IMAGE=$(CURDIR)/test/images/$(TEST_OS)
 # stamp file to check for node_modules/
-NODE_MODULES_TEST=package-lock.json
+NODE_MODULES_TEST=node_modules/
 # one example file in dist/ from bundler to check if that already ran
 DIST_TEST=dist/manifest.json
 # one example file in pkg/lib to check if it was already checked out
