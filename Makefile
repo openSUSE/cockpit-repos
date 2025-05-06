@@ -13,7 +13,7 @@ PREFIX ?= /usr/local
 APPSTREAMFILE=org.opensuse.$(subst -,_,$(PACKAGE_NAME)).metainfo.xml
 VM_IMAGE=$(CURDIR)/test/images/$(TEST_OS)
 # stamp file to check for node_modules/
-NODE_MODULES_TEST=node_modules/
+NODE_MODULES_TEST=package-lock.json
 # one example file in dist/ from bundler to check if that already ran
 DIST_TEST=dist/manifest.json
 # one example file in pkg/lib to check if it was already checked out
@@ -81,10 +81,10 @@ $(SPEC): packaging/$(SPEC).in $(NODE_MODULES_TEST)
 	provides=$$(npm ls --omit dev --package-lock-only --depth=Infinity | grep -Eo '[^[:space:]]+@[^[:space:]]+' | sort -u | sed 's/^/Provides: bundled(npm(/; s/\(.*\)@/\1)) = /'); \
 	awk -v p="$$provides" '{gsub(/%{VERSION}/, "$(VERSION)"); gsub(/%{NPM_PROVIDES}/, p)}1' $< > $@
 
-$(DIST_TEST): $(NODE_MODULES_TEST) $(COCKPIT_REPO_STAMP) $(shell find src/ -type f) package.json build.js
+$(DIST_TEST): $(NODE_MODULES_TEST) $(COCKPIT_REPO_STAMP) $(shell find src/ -type f) node_modules package.json build.js
 	NODE_ENV=$(NODE_ENV) ./build.js
 
-watch: $(NODE_MODULES_TEST) $(COCKPIT_REPO_STAMP)
+watch: $(NODE_MODULES_TEST) $(COCKPIT_REPO_STAMP) node_modules
 	NODE_ENV=$(NODE_ENV) ./build.js --watch
 
 clean:
@@ -123,7 +123,7 @@ dist: $(TARFILE)
 $(TARFILE): export NODE_ENV=production
 $(TARFILE): $(DIST_TEST) $(SPEC)
 	if type appstream-util >/dev/null 2>&1; then appstream-util validate-relax --nonet *.metainfo.xml; fi
-	tar --xz $(TAR_ARGS) -cf $(TARFILE) --transform 's,^,$(RPM_NAME)-$(VERSION)/,' \
+	tar --xz $(TAR_ARGS) -cf $(TARFILE) --transform 's,^,$(RPM_NAME)/,' \
 		--exclude packaging/$(SPEC).in --exclude node_modules \
 		$$(git ls-files) $(COCKPIT_REPO_FILES) $(NODE_MODULES_TEST) $(SPEC) dist/
 
@@ -187,7 +187,9 @@ codecheck: test/common $(NODE_MODULES_TEST)
 bots: $(COCKPIT_REPO_STAMP)
 	test/common/make-bots
 
-$(NODE_MODULES_TEST): package.json
+$(NODE_MODULES_TEST): node_modules
+
+node_modules: package.json
 	# if it exists already, npm install won't update it; force that so that we always get up-to-date packages
 	rm -f package-lock.json
 	# unset NODE_ENV, skips devDependencies otherwise

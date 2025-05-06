@@ -24,29 +24,12 @@ class TestApplication(testlib.MachineCase):
         # verify expected host name
         b.wait_in_text("#repos-list", "test-repo")
 
-        # change current hostname
-        self.write_file("/etc/hostname", "new-" + hostname)
-        # verify new hostname name
-        b.wait_in_text(".pf-v5-c-alert__title", "Running on new-" + hostname)
+        # delete test-repo
+        b.click(".pf-v6-c-table__tbody:nth-of-type(8) .pf-v5-c-table__action button")
+        b.click("button:contains('Delete repo')")
+        b.click(".pf-v5-c-modal-box button:contains('Delete')")
 
-        # change language to German
-        b.switch_to_top()
-        # the menu and dialog changed several times
-        b.click("#toggle-menu")
-        b.click("button.display-language-menu")
-        b.wait_popup('display-language-modal')
-        b.click("#display-language-modal [data-value='de-de'] button")
-        b.click("#display-language-modal button.pf-m-primary")
-        b.wait_visible("#content")
-        # menu label (from manifest) should be translated
-        b.wait_text("#host-apps a[href='/starter-kit']", "Bausatz")
-        # window title should be translated; this is not considered as "visible"
-        self.assertIn("Bausatz", b.call_js_func("ph_text", "head title"))
-
-        b.go("/starter-kit")
-        b.enter_page("/starter-kit")
-        # page label (from js) should be translated
-        b.wait_in_text(".pf-v5-c-alert__title", "Läuft auf")
+        b.wait_not_present(".pf-v6-c-table__tbody:nth-of-type(8)")
 
 
 if __name__ == '__main__':
