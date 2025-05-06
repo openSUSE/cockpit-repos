@@ -22,11 +22,8 @@ Summary: A Cockpit module for managing system repositories
 URL: https://github.com/openSUSE/cockpit-repos
 License: LGPL-2.1-or-later
 
-Source0: %{name}-%{version}.tar.xz
-Source10:       package-lock.json
-Source11:       node_modules.spec.inc
-%include %_sourcedir/node_modules.spec.inc
-
+Source0: https://github.com/cockpit-project/starter-kit/releases/download/%{version}/%{name}-%{version}.tar.xz
+Source1: https://github.com/cockpit-project/starter-kit/releases/download/%{version}/%{name}-node-%{version}.tar.xz
 BuildArch: noarch
 %if ! 0%{?suse_version}
 ExclusiveArch: %{nodejs_arches} noarch
@@ -45,7 +42,6 @@ BuildRequires: gettext
 %if 0%{?rhel} && 0%{?rhel} <= 8
 BuildRequires: libappstream-glib-devel
 %endif
-BuildRequires: local-npm-registry
 
 Requires: cockpit-bridge
 
@@ -55,9 +51,12 @@ Requires: cockpit-bridge
 A Cockpit module for managing system repositories
 
 %prep
-%autosetup
-rm -f package-lock.json
-local-npm-registry %{_sourcedir} install --include=dev --ignore-scripts
+%autosetup -n %{name} -a 1
+# ignore pre-built bundle in release tarball and rebuild it
+# but keep it in RHEL/CentOS-8/9, as that has a too old nodejs
+%if ! 0%{?rhel} || 0%{?rhel} >= 10
+rm -rf dist
+%endif
 
 %build
 NODE_ENV=production make
