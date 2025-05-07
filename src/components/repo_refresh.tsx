@@ -1,9 +1,9 @@
 import React, { Dispatch } from "react";
 import { Button, Modal, ModalFooter, ModalHeader } from "@patternfly/react-core";
 import { useDialogs } from "dialogs";
-import { Backend, RefreshError } from "../backends/backend";
+import { Backend, MessageSpawn, RefreshError } from "../backends/backend";
 
-import cockpit, { Spawn } from "cockpit.js";
+import cockpit from "cockpit.js";
 import { EmptyStatePanel } from "cockpit-components-empty-state";
 
 const _ = cockpit.gettext;
@@ -30,8 +30,8 @@ const ErrorFooter = ({
 }: {
     backend: Backend,
     error: RefreshError,
-    refreshing: Spawn<string> | null
-    setRefreshing: Dispatch<Spawn<string> | null>,
+    refreshing: MessageSpawn | null
+    setRefreshing: Dispatch<MessageSpawn | null>,
     setLoading: () => void,
     onLoaded: (err: RefreshError | null) => void
 }) => {
@@ -83,7 +83,7 @@ const ErrorFooter = ({
 const RefreshDialog = ({ backend }: { backend: Backend }) => {
     const Dialogs = useDialogs();
     const [refreshing, setRefreshing] = React.useState(true);
-    const [refreshProcess, setRefreshProcess] = React.useState<Spawn<string> | null>(null);
+    const [refreshProcess, setRefreshProcess] = React.useState<MessageSpawn | null>(null);
     const [error, setError] = React.useState<RefreshError | null>(null);
 
     React.useEffect(() => {
