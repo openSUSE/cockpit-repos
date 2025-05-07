@@ -19,15 +19,15 @@ class TestApplication(testlib.MachineCase):
         m.execute("zypper --non-interactive addrepo https://test/ test-repo")
         self.login_and_go("/cockpit-repos")
         # verify expected heading
-        b.wait_text(".pf-v5-c-card__title", "Software Repositories")
+        b.wait_text(".pf-v6-c-card__title", "Software Repositories")
 
         # verify expected host name
         b.wait_in_text("#repos-list", "test-repo")
 
         # delete test-repo
-        b.click(".pf-v6-c-table__tbody:nth-of-type(8) .pf-v5-c-table__action button")
+        b.click(".pf-v6-c-table__tbody:nth-of-type(8) .pf-v6-c-table__action button")
         b.click("button:contains('Delete repo')")
-        b.click(".pf-v5-c-modal-box button:contains('Delete')")
+        b.click(".pf-v6-c-modal-box button:contains('Delete')")
 
         b.wait_not_present(".pf-v6-c-table__tbody:nth-of-type(8)")
 
