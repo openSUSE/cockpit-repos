@@ -44,12 +44,8 @@ export const Application = () => {
 
     useEffect(() => {
         const updateSuperuserValue = () => setSuperuserValue(superuser.allowed);
-        // @ts-expect-error cockpit doesn't provide proper typing for superuser
-        // so for now we have to just ignore it.
         superuser.addEventListener("changed", updateSuperuserValue);
 
-        // @ts-expect-error cockpit doesn't provide proper typing for superuser
-        // so for now we have to just ignore it.
         return () => superuser.removeEventListener("changed", updateSuperuserValue);
     }, [setSuperuserValue]);
 
