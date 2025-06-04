@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-14 09:47+0100\n"
-"PO-Revision-Date: 2025-05-26 15:50+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2025-06-05 00:59+0000\n"
+"Last-Translator: Samanta Magalhaes <samanta_texttrans@outlook.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.opensuse.org/projects/"
 "cockpit/cockpit-repos/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -29,35 +29,35 @@ msgstr ""
 #: org.opensuse.cockpit_repos.metainfo.xml:6
 #: org.opensuse.cockpit_repos.metainfo.xml:8
 msgid "A cockpit module for managing repositories."
-msgstr ""
+msgstr "Um módulo do cockpit para gerenciamento de repositórios."
 
 #: src/app.tsx:77
 msgid "Add Repo"
-msgstr ""
+msgstr "Adicionar Repo"
 
 #: src/components/repo_dialog.tsx:22
 msgid "Add a repo"
-msgstr ""
+msgstr "Adicionar um repo"
 
 #: src/components/repo_form.tsx:85 src/components/repo_list.tsx:22
 msgid "Alias"
-msgstr ""
+msgstr "Álias"
 
 #: src/components/repo_form.tsx:117 src/components/repo_list.tsx:26
 msgid "Autorefresh"
-msgstr ""
+msgstr "Atualização automática"
 
 #: src/index.html:20
 msgid "Cockpit Repos"
-msgstr ""
+msgstr "Repos do Cockpit"
 
 #: src/components/repo_list.tsx:96
 msgid "Delete repo"
-msgstr ""
+msgstr "Excluir repo"
 
 #: src/components/repo_list.tsx:85
 msgid "Edit repo"
-msgstr ""
+msgstr "Editar repo"
 
 #: src/components/repo_form.tsx:109 src/components/repo_list.tsx:27
 msgid "Enabled"
@@ -65,11 +65,11 @@ msgstr "Habilitado"
 
 #: src/components/repo_form.tsx:125 src/components/repo_list.tsx:25
 msgid "GPG Check"
-msgstr ""
+msgstr "Verificação GPG"
 
 #: src/components/repo_list.tsx:70
 msgid "Loading..."
-msgstr ""
+msgstr "Carregando..."
 
 #: src/components/repo_form.tsx:93 src/components/repo_list.tsx:23
 msgid "Name"
@@ -77,24 +77,24 @@ msgstr "Nome"
 
 #: src/components/repo_form.tsx:101 src/components/repo_list.tsx:24
 msgid "Priority"
-msgstr ""
+msgstr "Prioridade"
 
 #: src/manifest.json:0 org.opensuse.cockpit_repos.metainfo.xml:5
 msgid "Repositories"
-msgstr ""
+msgstr "Repositórios"
 
 #: src/components/repo_form.tsx:143
 msgid "Save"
-msgstr ""
+msgstr "Salvar"
 
 #: src/app.tsx:82
 msgid "Software Repositories"
-msgstr ""
+msgstr "Repositórios de Software"
 
 #: src/components/repo_form.tsx:133
 msgid "Uri"
-msgstr ""
+msgstr "URI"
 
 #: org.opensuse.cockpit_repos.metainfo.xml:17
 msgid "openSUSE"
-msgstr ""
+msgstr "openSUSE"
