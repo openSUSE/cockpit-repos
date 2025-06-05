@@ -15,84 +15,86 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-14 09:47+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-06-05 04:59+0000\n"
+"Last-Translator: Grace Yu <grace.yu@excel-gits.com>\n"
+"Language-Team: Chinese (Taiwan) <https://l10n.opensuse.org/projects/cockpit/"
+"cockpit-repos/zh_TW/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Cockpit manifest2po\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: org.opensuse.cockpit_repos.metainfo.xml:6
 #: org.opensuse.cockpit_repos.metainfo.xml:8
 msgid "A cockpit module for managing repositories."
-msgstr ""
+msgstr "用於管理儲存庫的 Cockpit 模組。"
 
 #: src/app.tsx:77
 msgid "Add Repo"
-msgstr ""
+msgstr "新增儲存庫"
 
 #: src/components/repo_dialog.tsx:22
 msgid "Add a repo"
-msgstr ""
+msgstr "新增一個儲存庫"
 
 #: src/components/repo_form.tsx:85 src/components/repo_list.tsx:22
 msgid "Alias"
-msgstr ""
+msgstr "別名"
 
 #: src/components/repo_form.tsx:117 src/components/repo_list.tsx:26
 msgid "Autorefresh"
-msgstr ""
+msgstr "自動重新整理"
 
 #: src/index.html:20
 msgid "Cockpit Repos"
-msgstr ""
+msgstr "Cockpit 儲存庫"
 
 #: src/components/repo_list.tsx:96
 msgid "Delete repo"
-msgstr ""
+msgstr "刪除儲存庫"
 
 #: src/components/repo_list.tsx:85
 msgid "Edit repo"
-msgstr ""
+msgstr "編輯儲存庫"
 
 #: src/components/repo_form.tsx:109 src/components/repo_list.tsx:27
 msgid "Enabled"
-msgstr ""
+msgstr "已啟用"
 
 #: src/components/repo_form.tsx:125 src/components/repo_list.tsx:25
 msgid "GPG Check"
-msgstr ""
+msgstr "GPG 檢查"
 
 #: src/components/repo_list.tsx:70
 msgid "Loading..."
-msgstr ""
+msgstr "正在載入..."
 
 #: src/components/repo_form.tsx:93 src/components/repo_list.tsx:23
 msgid "Name"
-msgstr ""
+msgstr "名稱"
 
 #: src/components/repo_form.tsx:101 src/components/repo_list.tsx:24
 msgid "Priority"
-msgstr ""
+msgstr "優先顺序"
 
 #: src/manifest.json:0 org.opensuse.cockpit_repos.metainfo.xml:5
 msgid "Repositories"
-msgstr ""
+msgstr "儲存庫"
 
 #: src/components/repo_form.tsx:143
 msgid "Save"
-msgstr ""
+msgstr "儲存"
 
 #: src/app.tsx:82
 msgid "Software Repositories"
-msgstr ""
+msgstr "軟體儲存庫"
 
 #: src/components/repo_form.tsx:133
 msgid "Uri"
-msgstr ""
+msgstr "URI"
 
 #: org.opensuse.cockpit_repos.metainfo.xml:17
 msgid "openSUSE"
-msgstr ""
+msgstr "openSUSE"
