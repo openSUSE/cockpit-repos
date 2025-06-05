@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-14 09:47+0100\n"
-"PO-Revision-Date: 2025-05-26 15:50+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2025-06-05 04:59+0000\n"
+"Last-Translator: Carina Hagl <vistatec_pm@sunflare.co.jp>\n"
 "Language-Team: Japanese <https://l10n.opensuse.org/projects/cockpit/"
 "cockpit-repos/ja/>\n"
 "Language: ja\n"
@@ -29,35 +29,35 @@ msgstr ""
 #: org.opensuse.cockpit_repos.metainfo.xml:6
 #: org.opensuse.cockpit_repos.metainfo.xml:8
 msgid "A cockpit module for managing repositories."
-msgstr ""
+msgstr "リポジトリを管理するためのCockpitモジュール。"
 
 #: src/app.tsx:77
 msgid "Add Repo"
-msgstr ""
+msgstr "リポジトリの追加"
 
 #: src/components/repo_dialog.tsx:22
 msgid "Add a repo"
-msgstr ""
+msgstr "リポジトリを追加する"
 
 #: src/components/repo_form.tsx:85 src/components/repo_list.tsx:22
 msgid "Alias"
-msgstr ""
+msgstr "別名"
 
 #: src/components/repo_form.tsx:117 src/components/repo_list.tsx:26
 msgid "Autorefresh"
-msgstr ""
+msgstr "自動更新"
 
 #: src/index.html:20
 msgid "Cockpit Repos"
-msgstr ""
+msgstr "Cockpitリポジトリ"
 
 #: src/components/repo_list.tsx:96
 msgid "Delete repo"
-msgstr ""
+msgstr "リポジトリの削除"
 
 #: src/components/repo_list.tsx:85
 msgid "Edit repo"
-msgstr ""
+msgstr "リポジトリの編集"
 
 #: src/components/repo_form.tsx:109 src/components/repo_list.tsx:27
 msgid "Enabled"
@@ -65,7 +65,7 @@ msgstr "有効化"
 
 #: src/components/repo_form.tsx:125 src/components/repo_list.tsx:25
 msgid "GPG Check"
-msgstr ""
+msgstr "GPGチェック"
 
 #: src/components/repo_list.tsx:70
 msgid "Loading..."
@@ -77,24 +77,24 @@ msgstr "名前"
 
 #: src/components/repo_form.tsx:101 src/components/repo_list.tsx:24
 msgid "Priority"
-msgstr ""
+msgstr "優先度"
 
 #: src/manifest.json:0 org.opensuse.cockpit_repos.metainfo.xml:5
 msgid "Repositories"
-msgstr ""
+msgstr "リポジトリ"
 
 #: src/components/repo_form.tsx:143
 msgid "Save"
-msgstr ""
+msgstr "保存"
 
 #: src/app.tsx:82
 msgid "Software Repositories"
-msgstr ""
+msgstr "ソフトウェアリポジトリ"
 
 #: src/components/repo_form.tsx:133
 msgid "Uri"
-msgstr ""
+msgstr "URI"
 
 #: org.opensuse.cockpit_repos.metainfo.xml:17
 msgid "openSUSE"
-msgstr ""
+msgstr "openSUSE"
