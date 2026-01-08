@@ -15,16 +15,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-14 09:47+0100\n"
-"PO-Revision-Date: 2025-05-26 15:50+0000\n"
+"PO-Revision-Date: 2026-01-08 19:04+0000\n"
 "Last-Translator: Robert Simai <robert.simai@suse.com>\n"
-"Language-Team: German <https://l10n.opensuse.org/projects/cockpit/"
-"cockpit-repos/de/>\n"
+"Language-Team: German <https://l10n.opensuse.org/projects/cockpit/cockpit-"
+"repos/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11.4\n"
+"X-Generator: Weblate 5.15.1\n"
 
 #: org.opensuse.cockpit_repos.metainfo.xml:6
 #: org.opensuse.cockpit_repos.metainfo.xml:8
@@ -85,7 +85,7 @@ msgstr "Repositories"
 
 #: src/components/repo_form.tsx:143
 msgid "Save"
-msgstr "Speichern"
+msgstr "Sichern"
 
 #: src/app.tsx:82
 msgid "Software Repositories"
