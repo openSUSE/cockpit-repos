@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-14 09:47+0100\n"
+"POT-Creation-Date: 2025-05-15 09:32+0100\n"
 "PO-Revision-Date: 2025-06-05 00:59+0000\n"
 "Last-Translator: Samanta Magalhaes <samanta_texttrans@outlook.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.opensuse.org/projects/"
@@ -31,39 +31,63 @@ msgstr ""
 msgid "A cockpit module for managing repositories."
 msgstr "Um módulo do cockpit para gerenciamento de repositórios."
 
-#: src/app.tsx:77
+#: src/app.tsx:129
 msgid "Add Repo"
 msgstr "Adicionar Repo"
 
-#: src/components/repo_dialog.tsx:22
+#: src/app.tsx:127
 msgid "Add a repo"
 msgstr "Adicionar um repo"
 
-#: src/components/repo_form.tsx:85 src/components/repo_list.tsx:22
+#: src/components/repo_form.tsx:97
 msgid "Alias"
 msgstr "Álias"
 
-#: src/components/repo_form.tsx:117 src/components/repo_list.tsx:26
+#: src/components/repo_form.tsx:131 src/components/repo_list.tsx:27
 msgid "Autorefresh"
 msgstr "Atualização automática"
+
+#: src/components/confirmation_dialog.tsx:44 src/components/repo_refresh.tsx:77
+msgid "Cancel"
+msgstr ""
 
 #: src/index.html:20
 msgid "Cockpit Repos"
 msgstr "Repos do Cockpit"
 
-#: src/components/repo_list.tsx:96
+#: src/backends/zypp.tsx:160
+msgid "Couldn't refresh the following repos:"
+msgstr ""
+
+#: src/backends/zypp.tsx:151
+msgid "Couldn't trust following repos:"
+msgstr ""
+
+#: src/components/confirmation_dialog.tsx:37
+#, fuzzy
+#| msgid "Delete repo"
+msgid "Delete"
+msgstr "Excluir repo"
+
+#: src/components/repo_list.tsx:94 src/components/repo_list.tsx:102
+#, fuzzy
+#| msgid "Delete repo"
+msgid "Delete $0?"
+msgstr "Excluir repo"
+
+#: src/components/repo_list.tsx:128
 msgid "Delete repo"
 msgstr "Excluir repo"
 
-#: src/components/repo_list.tsx:85
+#: src/components/repo_list.tsx:85 src/components/repo_list.tsx:87
 msgid "Edit repo"
 msgstr "Editar repo"
 
-#: src/components/repo_form.tsx:109 src/components/repo_list.tsx:27
+#: src/components/repo_form.tsx:123 src/components/repo_list.tsx:28
 msgid "Enabled"
 msgstr "Habilitado"
 
-#: src/components/repo_form.tsx:125 src/components/repo_list.tsx:25
+#: src/components/repo_form.tsx:139 src/components/repo_list.tsx:26
 msgid "GPG Check"
 msgstr "Verificação GPG"
 
@@ -71,30 +95,89 @@ msgstr "Verificação GPG"
 msgid "Loading..."
 msgstr "Carregando..."
 
-#: src/components/repo_form.tsx:93 src/components/repo_list.tsx:23
+#: src/components/repo_form.tsx:107 src/components/repo_list.tsx:24
 msgid "Name"
 msgstr "Nome"
 
-#: src/components/repo_form.tsx:101 src/components/repo_list.tsx:24
+#: src/components/repo_list.tsx:117 src/components/repo_refresh.tsx:18
+msgid "Ok"
+msgstr ""
+
+#: src/components/repo_refresh.tsx:66
+msgid "Okay"
+msgstr ""
+
+#: src/components/repo_form.tsx:115 src/components/repo_list.tsx:25
 msgid "Priority"
 msgstr "Prioridade"
+
+#: src/components/repo_refresh.tsx:142
+#, fuzzy
+#| msgid "Repositories"
+msgid "Refresh repositories"
+msgstr "Repositórios"
+
+#: src/components/repo_refresh.tsx:114
+msgid "Refreshing repos was successful"
+msgstr ""
+
+#: src/components/repo_refresh.tsx:101
+#, fuzzy
+#| msgid "Repositories"
+msgid "Refreshing repositories"
+msgstr "Repositórios"
+
+#: src/components/repo_form.tsx:155
+msgid "Repo Uri cannot be edited via Cockpit"
+msgstr ""
+
+#: src/components/repo_form.tsx:105
+msgid "Repo alias cannot be edited via Cockpit"
+msgstr ""
 
 #: src/manifest.json:0 org.opensuse.cockpit_repos.metainfo.xml:5
 msgid "Repositories"
 msgstr "Repositórios"
 
-#: src/components/repo_form.tsx:143
+#: src/components/repo_form.tsx:159
 msgid "Save"
 msgstr "Salvar"
 
-#: src/app.tsx:82
+#: src/backends/zypp.tsx:177
+msgid "See \"zypper ref\" for more information."
+msgstr ""
+
+#: src/app.tsx:136
 msgid "Software Repositories"
 msgstr "Repositórios de Software"
 
-#: src/components/repo_form.tsx:133
+#: src/components/repo_form.tsx:86
+msgid "There was an error adding the repo:"
+msgstr ""
+
+#: src/components/repo_refresh.tsx:58
+msgid "Trust"
+msgstr ""
+
+#: src/backends/zypp.tsx:176
+msgid "Unknown error occured."
+msgstr ""
+
+#: src/components/repo_form.tsx:147
 msgid "Uri"
 msgstr "URI"
 
-#: org.opensuse.cockpit_repos.metainfo.xml:17
-msgid "openSUSE"
-msgstr "openSUSE"
+#: src/app.tsx:110
+msgid ""
+"Web console is running in limited access mode. To add or edit a repository "
+"please turn on administrative access"
+msgstr ""
+
+#: src/backends/zypp.tsx:154
+msgid ""
+"You can trust them, or run \"zypper ref\" as root in console to see more "
+"information about the issue"
+msgstr ""
+
+#~ msgid "openSUSE"
+#~ msgstr "openSUSE"
