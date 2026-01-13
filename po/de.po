@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-15 09:32+0100\n"
-"PO-Revision-Date: 2026-01-11 01:04+0000\n"
-"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
+"PO-Revision-Date: 2026-01-13 13:04+0000\n"
+"Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: German <https://l10n.opensuse.org/projects/cockpit/cockpit-"
 "repos/de/>\n"
 "Language: de\n"
@@ -49,7 +49,7 @@ msgstr "Automatisch erneuern"
 
 #: src/components/confirmation_dialog.tsx:44 src/components/repo_refresh.tsx:77
 msgid "Cancel"
-msgstr ""
+msgstr "Abbrechen"
 
 #: src/index.html:20
 msgid "Cockpit Repos"
@@ -64,10 +64,8 @@ msgid "Couldn't trust following repos:"
 msgstr ""
 
 #: src/components/confirmation_dialog.tsx:37
-#, fuzzy
-#| msgid "Delete repo"
 msgid "Delete"
-msgstr "Repo entfernen"
+msgstr "Löschen"
 
 #: src/components/repo_list.tsx:94 src/components/repo_list.tsx:102
 #, fuzzy
