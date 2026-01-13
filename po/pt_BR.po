@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-15 09:32+0100\n"
-"PO-Revision-Date: 2025-06-05 00:59+0000\n"
-"Last-Translator: Samanta Magalhaes <samanta_texttrans@outlook.com>\n"
+"PO-Revision-Date: 2026-01-13 13:04+0000\n"
+"Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.opensuse.org/projects/"
 "cockpit/cockpit-repos/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.11.4\n"
+"X-Generator: Weblate 5.15.1\n"
 
 #: org.opensuse.cockpit_repos.metainfo.xml:6
 #: org.opensuse.cockpit_repos.metainfo.xml:8
@@ -49,7 +49,7 @@ msgstr "Atualização automática"
 
 #: src/components/confirmation_dialog.tsx:44 src/components/repo_refresh.tsx:77
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #: src/index.html:20
 msgid "Cockpit Repos"
@@ -64,10 +64,8 @@ msgid "Couldn't trust following repos:"
 msgstr ""
 
 #: src/components/confirmation_dialog.tsx:37
-#, fuzzy
-#| msgid "Delete repo"
 msgid "Delete"
-msgstr "Excluir repo"
+msgstr "Excluir"
 
 #: src/components/repo_list.tsx:94 src/components/repo_list.tsx:102
 #, fuzzy
