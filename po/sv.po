@@ -16,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-21 11:19+0000\n"
 "PO-Revision-Date: 2026-01-14 08:04+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
+"Last-Translator: Luna  Jernberg <bittin@opensuse.org>\n"
 "Language-Team: Swedish <https://l10n.opensuse.org/projects/cockpit/cockpit-"
 "repos/sv/>\n"
 "Language: sv\n"
@@ -29,63 +29,63 @@ msgstr ""
 #: org.opensuse.cockpit_repos.metainfo.xml:6
 #: org.opensuse.cockpit_repos.metainfo.xml:8
 msgid "A cockpit module for managing repositories."
-msgstr ""
+msgstr "En cockpit modul för att hantera förråd."
 
 #: src/app.tsx:129
 msgid "Add Repo"
-msgstr ""
+msgstr "Lägg till förråd"
 
 #: src/app.tsx:127
 msgid "Add a repo"
-msgstr ""
+msgstr "Lägg till ett förråd"
 
 #: src/components/repo_form.tsx:97
 msgid "Alias"
-msgstr ""
+msgstr "Alias"
 
 #: src/components/repo_form.tsx:131 src/components/repo_list.tsx:27
 msgid "Autorefresh"
-msgstr ""
+msgstr "Automatisk uppdatering"
 
 #: src/components/confirmation_dialog.tsx:44 src/components/repo_refresh.tsx:77
 msgid "Cancel"
-msgstr ""
+msgstr "Avbryt"
 
 #: src/index.html:20
 msgid "Cockpit Repos"
-msgstr ""
+msgstr "Cockpit förråd"
 
 #: src/backends/zypp.tsx:160
 msgid "Couldn't refresh the following repos:"
-msgstr ""
+msgstr "Kunde inte uppdatera följande förråd:"
 
 #: src/backends/zypp.tsx:151
 msgid "Couldn't trust following repos:"
-msgstr ""
+msgstr "Kunde inte lita på följande förråd:"
 
 #: src/components/confirmation_dialog.tsx:37
 msgid "Delete"
-msgstr ""
+msgstr "Radera"
 
 #: src/components/repo_list.tsx:94 src/components/repo_list.tsx:102
 msgid "Delete $0?"
-msgstr ""
+msgstr "Radera $0?"
 
 #: src/components/repo_list.tsx:128
 msgid "Delete repo"
-msgstr ""
+msgstr "Radera förråd"
 
 #: src/components/repo_list.tsx:85 src/components/repo_list.tsx:87
 msgid "Edit repo"
-msgstr ""
+msgstr "Redigera förråd"
 
 #: src/components/repo_form.tsx:123 src/components/repo_list.tsx:28
 msgid "Enabled"
-msgstr ""
+msgstr "Aktiverad"
 
 #: src/components/repo_form.tsx:139 src/components/repo_list.tsx:26
 msgid "GPG Check"
-msgstr ""
+msgstr "GPG-kontroll"
 
 #: src/components/repo_list.tsx:70
 msgid "Loading..."
@@ -93,80 +93,84 @@ msgstr "Laddar..."
 
 #: src/components/repo_form.tsx:107 src/components/repo_list.tsx:24
 msgid "Name"
-msgstr ""
+msgstr "Namn"
 
 #: src/components/repo_list.tsx:117 src/components/repo_refresh.tsx:18
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #: src/components/repo_refresh.tsx:66
 msgid "Okay"
-msgstr ""
+msgstr "Okej"
 
 #: src/components/repo_form.tsx:115 src/components/repo_list.tsx:25
 msgid "Priority"
-msgstr ""
+msgstr "Prioritet"
 
 #: src/components/repo_refresh.tsx:142
 msgid "Refresh repositories"
-msgstr ""
+msgstr "Uppdatera förråd"
 
 #: src/components/repo_refresh.tsx:114
 msgid "Refreshing repos was successful"
-msgstr ""
+msgstr "Uppdatering av förråd var framgångsrik"
 
 #: src/components/repo_refresh.tsx:101
 msgid "Refreshing repositories"
-msgstr ""
+msgstr "Uppdaterar förråd"
 
 #: src/components/repo_form.tsx:155
 msgid "Repo Uri cannot be edited via Cockpit"
-msgstr ""
+msgstr "Förråd Uri kan inte redigeras via Cockpit"
 
 #: src/components/repo_form.tsx:105
 msgid "Repo alias cannot be edited via Cockpit"
-msgstr ""
+msgstr "Förråd alias kan inte redigeras via Cockpit"
 
 #: src/manifest.json:0 org.opensuse.cockpit_repos.metainfo.xml:5
 msgid "Repositories"
-msgstr ""
+msgstr "Förråd"
 
 #: src/components/repo_form.tsx:159
 msgid "Save"
-msgstr ""
+msgstr "Spara"
 
 #: src/backends/zypp.tsx:177
 msgid "See \"zypper ref\" for more information."
-msgstr ""
+msgstr "Se \"zypper ref\" för mer information."
 
 #: src/app.tsx:136
 msgid "Software Repositories"
-msgstr ""
+msgstr "Programvaruförråd"
 
 #: src/components/repo_form.tsx:86
 msgid "There was an error adding the repo:"
-msgstr ""
+msgstr "Det uppstod ett fel när du lade till förråd:"
 
 #: src/components/repo_refresh.tsx:58
 msgid "Trust"
-msgstr ""
+msgstr "Lita på"
 
 #: src/backends/zypp.tsx:176
 msgid "Unknown error occured."
-msgstr ""
+msgstr "Okänt fel uppstod."
 
 #: src/components/repo_form.tsx:147
 msgid "Uri"
-msgstr ""
+msgstr "Uri"
 
 #: src/app.tsx:110
 msgid ""
 "Web console is running in limited access mode. To add or edit a repository "
 "please turn on administrative access"
 msgstr ""
+"Webbkonsolen körs i begränsad åtkomstläge. För att lägga till eller redigera "
+"ett förråd, vänligen aktivera administrativ åtkomst"
 
 #: src/backends/zypp.tsx:154
 msgid ""
 "You can trust them, or run \"zypper ref\" as root in console to see more "
 "information about the issue"
 msgstr ""
+"Du kan lite på dem, eller köra \"zypper ref\" som root i konsolen för att se "
+"mer information om problemet"
