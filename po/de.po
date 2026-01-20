@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-15 09:32+0100\n"
-"PO-Revision-Date: 2026-01-16 21:04+0000\n"
+"PO-Revision-Date: 2026-01-20 05:04+0000\n"
 "Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German <https://l10n.opensuse.org/projects/cockpit/cockpit-"
 "repos/de/>\n"
@@ -57,11 +57,11 @@ msgstr "Cockpit Repos"
 
 #: src/backends/zypp.tsx:160
 msgid "Couldn't refresh the following repos:"
-msgstr ""
+msgstr "Folgende Repositorien konnten nicht aufgefrischt werden:"
 
 #: src/backends/zypp.tsx:151
 msgid "Couldn't trust following repos:"
-msgstr ""
+msgstr "Folgenden Repositorien konnte nicht vertraut werden:"
 
 #: src/components/confirmation_dialog.tsx:37
 msgid "Delete"
@@ -113,21 +113,19 @@ msgstr "Repositorien auffrischen"
 
 #: src/components/repo_refresh.tsx:114
 msgid "Refreshing repos was successful"
-msgstr ""
+msgstr "Auffrischen der Repositorien war erfolgreich"
 
 #: src/components/repo_refresh.tsx:101
-#, fuzzy
-#| msgid "Repositories"
 msgid "Refreshing repositories"
-msgstr "Repositories"
+msgstr "Repositorien auffrischen"
 
 #: src/components/repo_form.tsx:155
 msgid "Repo Uri cannot be edited via Cockpit"
-msgstr ""
+msgstr "Repo-URI kann nicht über Cockpit bearbeitet werden"
 
 #: src/components/repo_form.tsx:105
 msgid "Repo alias cannot be edited via Cockpit"
-msgstr ""
+msgstr "Repo-Alias kann nicht über Cockpit bearbeitet werden"
 
 #: src/manifest.json:0 org.opensuse.cockpit_repos.metainfo.xml:5
 msgid "Repositories"
@@ -147,7 +145,7 @@ msgstr "Software Repositories"
 
 #: src/components/repo_form.tsx:86
 msgid "There was an error adding the repo:"
-msgstr ""
+msgstr "Beim Hinzufügen des Repositoriums ist ein Fehler aufgetreten:"
 
 #: src/components/repo_refresh.tsx:58
 msgid "Trust"
@@ -166,12 +164,17 @@ msgid ""
 "Web console is running in limited access mode. To add or edit a repository "
 "please turn on administrative access"
 msgstr ""
+"Die Webkonsole wird im eingeschränkten Zugriffsmodus ausgeführt. Um ein "
+"Repositorium hinzuzufügen oder zu bearbeiten, aktivieren Sie bitte den "
+"Administratorzugriff"
 
 #: src/backends/zypp.tsx:154
 msgid ""
 "You can trust them, or run \"zypper ref\" as root in console to see more "
 "information about the issue"
 msgstr ""
+"Sie können ihnen vertrauen oder „zypper ref“ als root in der Konsole "
+"ausführen, um weitere Informationen zu diesem Problem zu erhalten"
 
 #~ msgid "openSUSE"
 #~ msgstr "openSUSE"
