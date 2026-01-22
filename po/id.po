@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-15 09:32+0100\n"
-"PO-Revision-Date: 2026-01-13 13:04+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2026-01-22 05:04+0000\n"
+"Last-Translator: Arif Budiman <arifpedia@gmail.com>\n"
 "Language-Team: Indonesian <https://l10n.opensuse.org/projects/cockpit/"
 "cockpit-repos/id/>\n"
 "Language: id\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.15.1\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #: org.opensuse.cockpit_repos.metainfo.xml:6
 #: org.opensuse.cockpit_repos.metainfo.xml:8
@@ -57,21 +57,19 @@ msgstr "Repo Cockpit"
 
 #: src/backends/zypp.tsx:160
 msgid "Couldn't refresh the following repos:"
-msgstr ""
+msgstr "Tidak dapat menyegarkan repositori berikut:"
 
 #: src/backends/zypp.tsx:151
 msgid "Couldn't trust following repos:"
-msgstr ""
+msgstr "Tidak dapat mempercayai repositori berikut:"
 
 #: src/components/confirmation_dialog.tsx:37
 msgid "Delete"
 msgstr "Hapus"
 
 #: src/components/repo_list.tsx:94 src/components/repo_list.tsx:102
-#, fuzzy
-#| msgid "Delete repo"
 msgid "Delete $0?"
-msgstr "Hapus repo"
+msgstr "Hapus $0?"
 
 #: src/components/repo_list.tsx:128
 msgid "Delete repo"
@@ -99,39 +97,35 @@ msgstr "Nama"
 
 #: src/components/repo_list.tsx:117 src/components/repo_refresh.tsx:18
 msgid "Ok"
-msgstr ""
+msgstr "Oke"
 
 #: src/components/repo_refresh.tsx:66
 msgid "Okay"
-msgstr ""
+msgstr "Oke"
 
 #: src/components/repo_form.tsx:115 src/components/repo_list.tsx:25
 msgid "Priority"
 msgstr "Prioritas"
 
 #: src/components/repo_refresh.tsx:142
-#, fuzzy
-#| msgid "Repositories"
 msgid "Refresh repositories"
-msgstr "Repositori"
+msgstr "Perbarui repositori"
 
 #: src/components/repo_refresh.tsx:114
 msgid "Refreshing repos was successful"
-msgstr ""
+msgstr "Penyegaran repositori berhasil"
 
 #: src/components/repo_refresh.tsx:101
-#, fuzzy
-#| msgid "Repositories"
 msgid "Refreshing repositories"
-msgstr "Repositori"
+msgstr "Memperbarui repositori"
 
 #: src/components/repo_form.tsx:155
 msgid "Repo Uri cannot be edited via Cockpit"
-msgstr ""
+msgstr "URI repositori tidak dapat diedit melalui Cockpit"
 
 #: src/components/repo_form.tsx:105
 msgid "Repo alias cannot be edited via Cockpit"
-msgstr ""
+msgstr "Alias repositori tidak dapat diedit melalui Cockpit"
 
 #: src/manifest.json:0 org.opensuse.cockpit_repos.metainfo.xml:5
 msgid "Repositories"
@@ -143,7 +137,7 @@ msgstr "Simpan"
 
 #: src/backends/zypp.tsx:177
 msgid "See \"zypper ref\" for more information."
-msgstr ""
+msgstr "Lihat \"zypper ref\" untuk informasi lebih lanjut."
 
 #: src/app.tsx:136
 msgid "Software Repositories"
@@ -151,15 +145,15 @@ msgstr "Repositori Perangkat Lunak"
 
 #: src/components/repo_form.tsx:86
 msgid "There was an error adding the repo:"
-msgstr ""
+msgstr "Terjadi kesalahan saat menambahkan repositori:"
 
 #: src/components/repo_refresh.tsx:58
 msgid "Trust"
-msgstr ""
+msgstr "Percayai"
 
 #: src/backends/zypp.tsx:176
 msgid "Unknown error occured."
-msgstr ""
+msgstr "Terjadi kesalahan yang tidak diketahui."
 
 #: src/components/repo_form.tsx:147
 msgid "Uri"
@@ -170,12 +164,16 @@ msgid ""
 "Web console is running in limited access mode. To add or edit a repository "
 "please turn on administrative access"
 msgstr ""
+"Konsol web berjalan dalam mode akses terbatas. Untuk menambahkan atau "
+"mengedit repositori, silakan aktifkan akses administratif"
 
 #: src/backends/zypp.tsx:154
 msgid ""
 "You can trust them, or run \"zypper ref\" as root in console to see more "
 "information about the issue"
 msgstr ""
+"Anda dapat mempercayainya, atau jalankan \"zypper ref\" sebagai root di "
+"konsol untuk melihat informasi lebih lanjut tentang masalah tersebut"
 
 #~ msgid "openSUSE"
 #~ msgstr "openSUSE"
