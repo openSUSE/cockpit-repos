@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-15 09:32+0100\n"
-"PO-Revision-Date: 2026-01-13 13:04+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2026-04-24 17:04+0000\n"
+"Last-Translator: Victor hck <victorhck@opensuse.org>\n"
 "Language-Team: Spanish <https://l10n.opensuse.org/projects/cockpit/cockpit-"
 "repos/es/>\n"
 "Language: es\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.15.1\n"
+"X-Generator: Weblate 5.17\n"
 
 #: org.opensuse.cockpit_repos.metainfo.xml:6
 #: org.opensuse.cockpit_repos.metainfo.xml:8
@@ -57,21 +57,19 @@ msgstr "Repos de Cockpit"
 
 #: src/backends/zypp.tsx:160
 msgid "Couldn't refresh the following repos:"
-msgstr ""
+msgstr "No se pudieron actualizar los siguientes repositorios:"
 
 #: src/backends/zypp.tsx:151
 msgid "Couldn't trust following repos:"
-msgstr ""
+msgstr "No se pudo confiar en los siguientes repositorios:"
 
 #: src/components/confirmation_dialog.tsx:37
 msgid "Delete"
 msgstr "Borrar"
 
 #: src/components/repo_list.tsx:94 src/components/repo_list.tsx:102
-#, fuzzy
-#| msgid "Delete repo"
 msgid "Delete $0?"
-msgstr "Eliminar repo"
+msgstr "¿Eliminar $0?"
 
 #: src/components/repo_list.tsx:128
 msgid "Delete repo"
@@ -99,39 +97,35 @@ msgstr "Nombre"
 
 #: src/components/repo_list.tsx:117 src/components/repo_refresh.tsx:18
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #: src/components/repo_refresh.tsx:66
 msgid "Okay"
-msgstr ""
+msgstr "Ok"
 
 #: src/components/repo_form.tsx:115 src/components/repo_list.tsx:25
 msgid "Priority"
 msgstr "Prioridad"
 
 #: src/components/repo_refresh.tsx:142
-#, fuzzy
-#| msgid "Repositories"
 msgid "Refresh repositories"
-msgstr "Repositorios"
+msgstr "Refrescar repositorios"
 
 #: src/components/repo_refresh.tsx:114
 msgid "Refreshing repos was successful"
-msgstr ""
+msgstr "La actualización de los repositorios fue exitosa"
 
 #: src/components/repo_refresh.tsx:101
-#, fuzzy
-#| msgid "Repositories"
 msgid "Refreshing repositories"
-msgstr "Repositorios"
+msgstr "Actualizando los repositorios"
 
 #: src/components/repo_form.tsx:155
 msgid "Repo Uri cannot be edited via Cockpit"
-msgstr ""
+msgstr "La URL del repositorio no puede ser editada desde Cockpit"
 
 #: src/components/repo_form.tsx:105
 msgid "Repo alias cannot be edited via Cockpit"
-msgstr ""
+msgstr "El alias del repositorio no puede ser editado mediante Cockpit"
 
 #: src/manifest.json:0 org.opensuse.cockpit_repos.metainfo.xml:5
 msgid "Repositories"
@@ -143,7 +137,7 @@ msgstr "Guardar"
 
 #: src/backends/zypp.tsx:177
 msgid "See \"zypper ref\" for more information."
-msgstr ""
+msgstr "Consulte \"zypper ref\" para obtener más información."
 
 #: src/app.tsx:136
 msgid "Software Repositories"
@@ -151,15 +145,15 @@ msgstr "Repositorios de software"
 
 #: src/components/repo_form.tsx:86
 msgid "There was an error adding the repo:"
-msgstr ""
+msgstr "Hubo un error al añadir el repositorio:"
 
 #: src/components/repo_refresh.tsx:58
 msgid "Trust"
-msgstr ""
+msgstr "Confiar"
 
 #: src/backends/zypp.tsx:176
 msgid "Unknown error occured."
-msgstr ""
+msgstr "Se produjo un error desconocido."
 
 #: src/components/repo_form.tsx:147
 msgid "Uri"
@@ -170,12 +164,16 @@ msgid ""
 "Web console is running in limited access mode. To add or edit a repository "
 "please turn on administrative access"
 msgstr ""
+"La consola web se está ejecutando en modo de acceso limitado. Para añadir o "
+"editar un repositorio, active el acceso administrativo"
 
 #: src/backends/zypp.tsx:154
 msgid ""
 "You can trust them, or run \"zypper ref\" as root in console to see more "
 "information about the issue"
 msgstr ""
+"Puedes confiar en ellos o ejecutar \"zypper ref\" como root en la consola "
+"para ver más información sobre el problema"
 
 #~ msgid "openSUSE"
 #~ msgstr "openSUSE"
