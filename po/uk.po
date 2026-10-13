@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-21 11:19+0000\n"
-"PO-Revision-Date: 2026-08-05 21:13+0000\n"
+"PO-Revision-Date: 2026-10-13 22:13+0000\n"
 "Last-Translator: Eugene Krater <lachend@gmail.com>\n"
 "Language-Team: Ukrainian <https://l10n.opensuse.org/projects/cockpit/cockpit-"
 "repos/uk/>\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2026.8\n"
+"X-Generator: Weblate 2026.10.1\n"
 
 #: org.opensuse.cockpit_repos.metainfo.xml:6
 #: org.opensuse.cockpit_repos.metainfo.xml:8
@@ -94,7 +94,7 @@ msgstr ""
 
 #: src/components/repo_form.tsx:107 src/components/repo_list.tsx:24
 msgid "Name"
-msgstr ""
+msgstr "Назва"
 
 #: src/components/repo_list.tsx:117 src/components/repo_refresh.tsx:18
 msgid "Ok"
