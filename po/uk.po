@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-21 11:19+0000\n"
-"PO-Revision-Date: 2026-10-13 22:13+0000\n"
+"PO-Revision-Date: 2026-10-14 22:13+0000\n"
 "Last-Translator: Eugene Krater <lachend@gmail.com>\n"
 "Language-Team: Ukrainian <https://l10n.opensuse.org/projects/cockpit/cockpit-"
 "repos/uk/>\n"
@@ -106,31 +106,31 @@ msgstr ""
 
 #: src/components/repo_form.tsx:115 src/components/repo_list.tsx:25
 msgid "Priority"
-msgstr ""
+msgstr "Пріоритет"
 
 #: src/components/repo_refresh.tsx:142
 msgid "Refresh repositories"
-msgstr ""
+msgstr "Оновити репозиторії"
 
 #: src/components/repo_refresh.tsx:114
 msgid "Refreshing repos was successful"
-msgstr ""
+msgstr "Оновлення репозиторіїв пройшло успішно"
 
 #: src/components/repo_refresh.tsx:101
 msgid "Refreshing repositories"
-msgstr ""
+msgstr "Оновлення репозиторіїв"
 
 #: src/components/repo_form.tsx:155
 msgid "Repo Uri cannot be edited via Cockpit"
-msgstr ""
+msgstr "Repo Uri не можна редагувати за допомогою Cockpit"
 
 #: src/components/repo_form.tsx:105
 msgid "Repo alias cannot be edited via Cockpit"
-msgstr ""
+msgstr "Псевдонім репозиторію не можна редагувати за допомогою Cockpit"
 
 #: src/manifest.json:0 org.opensuse.cockpit_repos.metainfo.xml:5
 msgid "Repositories"
-msgstr ""
+msgstr "Репозиторії"
 
 #: src/components/repo_form.tsx:159
 msgid "Save"
@@ -138,36 +138,40 @@ msgstr "Зберегти"
 
 #: src/backends/zypp.tsx:177
 msgid "See \"zypper ref\" for more information."
-msgstr ""
+msgstr "Докладнішу інформацію див. у «zypper ref»."
 
 #: src/app.tsx:136
 msgid "Software Repositories"
-msgstr ""
+msgstr "Репозиторії програмного забезпечення"
 
 #: src/components/repo_form.tsx:86
 msgid "There was an error adding the repo:"
-msgstr ""
+msgstr "Сталася помилка під час додавання репозиторію:"
 
 #: src/components/repo_refresh.tsx:58
 msgid "Trust"
-msgstr ""
+msgstr "Довіряти"
 
 #: src/backends/zypp.tsx:176
 msgid "Unknown error occured."
-msgstr ""
+msgstr "Сталася невідома помилка."
 
 #: src/components/repo_form.tsx:147
 msgid "Uri"
-msgstr ""
+msgstr "Uri"
 
 #: src/app.tsx:110
 msgid ""
 "Web console is running in limited access mode. To add or edit a repository "
 "please turn on administrative access"
 msgstr ""
+"Веб-консоль працює в режимі обмеженого доступу. Щоб додати або редагувати "
+"репозиторій, увімкніть адміністративний доступ"
 
 #: src/backends/zypp.tsx:154
 msgid ""
 "You can trust them, or run \"zypper ref\" as root in console to see more "
 "information about the issue"
 msgstr ""
+"Ви можете довіряти їм або запустити команду «zypper ref» як користувач root "
+"у консолі, щоб отримати додаткову інформацію щодо цієї проблеми"
