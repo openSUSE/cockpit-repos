@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-21 11:19+0000\n"
-"PO-Revision-Date: 2026-10-14 22:13+0000\n"
+"PO-Revision-Date: 2026-10-17 17:13+0000\n"
 "Last-Translator: Eugene Krater <lachend@gmail.com>\n"
 "Language-Team: Ukrainian <https://l10n.opensuse.org/projects/cockpit/cockpit-"
 "repos/uk/>\n"
@@ -30,23 +30,23 @@ msgstr ""
 #: org.opensuse.cockpit_repos.metainfo.xml:6
 #: org.opensuse.cockpit_repos.metainfo.xml:8
 msgid "A cockpit module for managing repositories."
-msgstr ""
+msgstr "Модуль cockpit для управління репозиторіями."
 
 #: src/app.tsx:129
 msgid "Add Repo"
-msgstr ""
+msgstr "Додати репозиторій"
 
 #: src/app.tsx:127
 msgid "Add a repo"
-msgstr ""
+msgstr "Додати репо.."
 
 #: src/components/repo_form.tsx:97
 msgid "Alias"
-msgstr ""
+msgstr "Псевдо"
 
 #: src/components/repo_form.tsx:131 src/components/repo_list.tsx:27
 msgid "Autorefresh"
-msgstr ""
+msgstr "Автооновлення"
 
 #: src/components/confirmation_dialog.tsx:44 src/components/repo_refresh.tsx:77
 msgid "Cancel"
@@ -54,15 +54,15 @@ msgstr "Скасувати"
 
 #: src/index.html:20
 msgid "Cockpit Repos"
-msgstr ""
+msgstr "Репозиторії Cockpit"
 
 #: src/backends/zypp.tsx:160
 msgid "Couldn't refresh the following repos:"
-msgstr ""
+msgstr "Не вдалося оновити такі репозиторії:"
 
 #: src/backends/zypp.tsx:151
 msgid "Couldn't trust following repos:"
-msgstr ""
+msgstr "Не вдалося перевірити надійність таких репозиторіїв:"
 
 #: src/components/confirmation_dialog.tsx:37
 msgid "Delete"
@@ -70,27 +70,27 @@ msgstr "Видалити"
 
 #: src/components/repo_list.tsx:94 src/components/repo_list.tsx:102
 msgid "Delete $0?"
-msgstr ""
+msgstr "Видалити $0?"
 
 #: src/components/repo_list.tsx:128
 msgid "Delete repo"
-msgstr ""
+msgstr "Видалити репозиторій"
 
 #: src/components/repo_list.tsx:85 src/components/repo_list.tsx:87
 msgid "Edit repo"
-msgstr ""
+msgstr "Змінити репозиторій"
 
 #: src/components/repo_form.tsx:123 src/components/repo_list.tsx:28
 msgid "Enabled"
-msgstr ""
+msgstr "Активовано"
 
 #: src/components/repo_form.tsx:139 src/components/repo_list.tsx:26
 msgid "GPG Check"
-msgstr ""
+msgstr "Перевірка GPG"
 
 #: src/components/repo_list.tsx:70
 msgid "Loading..."
-msgstr ""
+msgstr "Вантажимо..."
 
 #: src/components/repo_form.tsx:107 src/components/repo_list.tsx:24
 msgid "Name"
@@ -98,11 +98,11 @@ msgstr "Назва"
 
 #: src/components/repo_list.tsx:117 src/components/repo_refresh.tsx:18
 msgid "Ok"
-msgstr ""
+msgstr "Гаразд"
 
 #: src/components/repo_refresh.tsx:66
 msgid "Okay"
-msgstr ""
+msgstr "Добре"
 
 #: src/components/repo_form.tsx:115 src/components/repo_list.tsx:25
 msgid "Priority"
